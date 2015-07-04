@@ -8,7 +8,7 @@
 
 import UIKit
 
-public let kItemCornerRadius: CGFloat = 2
+public let kItemCornerRadius: CGFloat = 5
 public let kNumberOfColumns = 2
 
 class ImageFeedViewController: UICollectionViewController {
@@ -40,6 +40,7 @@ class ImageFeedViewController: UICollectionViewController {
         collectionView!.backgroundColor = UIColor.clearColor()
         let size = CGRectGetWidth(collectionView!.bounds) / 2
         let layout = collectionViewLayout as! PinterestLayout
+        layout.topMargin = UIApplication.sharedApplication().statusBarFrame.height
         layout.delegate = self
         layout.numberOfColumns = kNumberOfColumns
     }
@@ -57,6 +58,7 @@ extension ImageFeedViewController {
         cell.cornerRadius = kItemCornerRadius
         return cell
     }
+    
 }
 
 extension ImageFeedViewController: PinterestLayoutDelegate {

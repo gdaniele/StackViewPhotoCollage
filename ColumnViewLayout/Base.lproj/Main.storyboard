@@ -18,11 +18,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="292" height="292"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeN-uv-Cvi">
+                                            <rect key="frame" x="0.0" y="0.0" width="292" height="292"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eeN-uv-Cvi" firstAttribute="leading" secondItem="FSM-K5-yUj" secondAttribute="leading" id="5rc-nX-j4y"/>
+                                    <constraint firstItem="eeN-uv-Cvi" firstAttribute="top" secondItem="FSM-K5-yUj" secondAttribute="top" id="CvC-1H-uJv"/>
+                                    <constraint firstAttribute="bottom" secondItem="eeN-uv-Cvi" secondAttribute="bottom" id="IyN-97-09p"/>
+                                    <constraint firstAttribute="trailing" secondItem="eeN-uv-Cvi" secondAttribute="trailing" id="wvn-AW-s3x"/>
+                                </constraints>
+                                <size key="customSize" width="292" height="292"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </collectionViewCell>
                         </cells>
                         <connections>

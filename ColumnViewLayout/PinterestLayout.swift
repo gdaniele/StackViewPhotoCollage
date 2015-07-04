@@ -16,7 +16,8 @@ class PinterestLayout: UICollectionViewLayout {
     weak var delegate: PinterestLayoutDelegate!
     var numberOfColumns = 2
     var topMargin: CGFloat = 0
-    
+    var sideMargin: CGFloat = 0
+
     private var cache = [UICollectionViewLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private let cellInset: CGFloat = 2
@@ -32,12 +33,12 @@ class PinterestLayout: UICollectionViewLayout {
     
     override func prepareLayout() {
         if cache.isEmpty {
-            let columnWidth = width / CGFloat(numberOfColumns)
+            let columnWidth = (width / CGFloat(numberOfColumns)) - sideMargin
 
             // create arrays to hold x and y offsets of each
             var xOffsets = [CGFloat]()
             for column in 0..<numberOfColumns {
-                xOffsets.append(CGFloat(column) * columnWidth)
+                xOffsets.append((CGFloat(column) * columnWidth) + sideMargin)
             }
             
             var yOffsets = [CGFloat](count: numberOfColumns, repeatedValue: topMargin)

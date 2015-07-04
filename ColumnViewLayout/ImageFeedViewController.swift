@@ -8,11 +8,14 @@
 
 import UIKit
 
+public let kItemCornerRadius: CGFloat = 2
+public let kNumberOfColumns = 2
+
 class ImageFeedViewController: UICollectionViewController {
     var colors: [UIColor] {
         get {
             var colors = [UIColor]()
-            let palette = [UIColor.greenColor(), UIColor.yellowColor(), UIColor.whiteColor(), UIColor.purpleColor(), UIColor.blackColor(), UIColor.blueColor()]
+            let palette = [UIColor.greenColor(), UIColor.yellowColor(), UIColor.darkGrayColor(), UIColor.purpleColor(), UIColor.brownColor(), UIColor.blueColor()]
             var paletteIndex = 0
             for i in 0..<photos.count {
                 colors.append(palette[paletteIndex])
@@ -36,6 +39,9 @@ class ImageFeedViewController: UICollectionViewController {
         
         collectionView!.backgroundColor = UIColor.clearColor()
         let size = CGRectGetWidth(collectionView!.bounds) / 2
+        let layout = collectionViewLayout as! PinterestLayout
+        layout.delegate = self
+        layout.numberOfColumns = kNumberOfColumns
     }
 
 }
@@ -43,5 +49,18 @@ class ImageFeedViewController: UICollectionViewController {
 extension ImageFeedViewController {
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AnnotatedPhotoCell", forIndexPath: indexPath) as! UICollectionViewCell
+        cell.contentView.backgroundColor = colors[indexPath.item]
+        cell.cornerRadius = kItemCornerRadius
+        return cell
+    }
+}
+
+extension ImageFeedViewController: PinterestLayoutDelegate {
+    func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return CGFloat((arc4random_uniform(4) + 1) * 100)
     }
 }

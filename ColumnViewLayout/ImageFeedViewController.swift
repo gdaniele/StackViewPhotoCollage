@@ -13,6 +13,10 @@ public let kNumberOfColumns = 2
 public let kSideMargin: CGFloat = 4
 
 class ImageFeedViewController: UICollectionViewController {
+    let kCollectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
+    let kCollectionViewSideInset: CGFloat = 5
+    let kCollectionViewBottomInset: CGFloat = 10
+    
     var photos = Photo.allPhotos()
 
     override func viewDidLoad() {
@@ -23,10 +27,10 @@ class ImageFeedViewController: UICollectionViewController {
         }
         
         collectionView!.backgroundColor = UIColor.clearColor()
+        collectionView!.contentInset = UIEdgeInsetsMake(kCollectionViewTopInset, kCollectionViewSideInset, kCollectionViewBottomInset, kCollectionViewSideInset)
         let size = CGRectGetWidth(collectionView!.bounds) / 2
         let layout = collectionViewLayout as! PinterestLayout
-        layout.topMargin = UIApplication.sharedApplication().statusBarFrame.height
-        layout.sideMargin = kSideMargin
+        layout.cellPadding = kCollectionViewSideInset
         layout.delegate = self
         layout.numberOfColumns = kNumberOfColumns
     }

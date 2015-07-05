@@ -23,7 +23,21 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeN-uv-Cvi">
                                             <rect key="frame" x="0.0" y="0.0" width="292" height="292"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NcQ-xL-irE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="292" height="200"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="GhA-7g-z9a"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.32880646959044557" blue="0.24790624263367611" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="NcQ-xL-irE" firstAttribute="leading" secondItem="eeN-uv-Cvi" secondAttribute="leading" id="WQz-Gx-cdi"/>
+                                                <constraint firstItem="NcQ-xL-irE" firstAttribute="top" secondItem="eeN-uv-Cvi" secondAttribute="top" id="d5A-cw-IKP"/>
+                                                <constraint firstAttribute="trailing" secondItem="NcQ-xL-irE" secondAttribute="trailing" id="oi2-KQ-fTK"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="5"/>

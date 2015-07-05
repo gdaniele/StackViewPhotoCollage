@@ -8,21 +8,22 @@
 
 import UIKit
 
+let comments = ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit", "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", "Ut enim ad minim veniam", "quis nostrud exercitation ullamco", "laboris nisi ut aliquip ex ea commodo", "consequat"]
+
 class Photo: NSObject {
     var caption: String
-    var comment: String
     var image: UIImage
     
-    init(caption: String, comment: String, image: UIImage) {
+    init(caption: String, image: UIImage) {
         self.caption = caption
-        self.comment = comment
         self.image = image
     }
 
     class func allPhotos() -> [Photo] {
         var photos = [Photo]()
-        for i in 0..<10 {
-            photos.append(Photo(caption: "asds", comment: "asdas", image: UIImage(named: "img")!))
+        for i in 1..<14 {
+            let caption = comments[Int(arc4random_uniform(UInt32(comments.count) - UInt32(1)))]
+            photos.append(Photo(caption: caption, image: UIImage(named: "example-\(i).jpg")!))
         }
         return photos
     }

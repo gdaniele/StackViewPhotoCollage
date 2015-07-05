@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wrs-W7-iYe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aoe-wK-8s2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Image Feed View Controller-->
+        <!--Pinterest Layout-->
         <scene sceneID="3km-or-KXX">
             <objects>
-                <collectionViewController id="wrs-W7-iYe" customClass="ImageFeedViewController" customModule="ColumnViewLayout" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Pinterest Layout" id="wrs-W7-iYe" customClass="ImageFeedViewController" customModule="ColumnViewLayout" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d7d-nQ-R7H">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <collectionViewLayout key="collectionViewLayout" id="am8-0c-h9k" customClass="PinterestLayout" customModule="ColumnViewLayout" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnnotatedPhotoCell" id="FSM-K5-yUj">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnnotatedPhotoCell" id="FSM-K5-yUj" customClass="AnnotatedPhotoCell" customModule="ColumnViewLayout" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -31,10 +32,20 @@
                                                         <constraint firstAttribute="height" constant="200" id="GhA-7g-z9a"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lay-ih-rnF">
+                                                    <rect key="frame" x="0.0" y="200" width="292" height="92"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.32880646959044557" blue="0.24790624263367611" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.90151515151515149" green="0.90151515151515149" blue="0.90151515151515149" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="lay-ih-rnF" firstAttribute="leading" secondItem="eeN-uv-Cvi" secondAttribute="leading" id="6mS-19-ItI"/>
+                                                <constraint firstAttribute="trailing" secondItem="lay-ih-rnF" secondAttribute="trailing" id="Oxf-hw-ai2"/>
                                                 <constraint firstItem="NcQ-xL-irE" firstAttribute="leading" secondItem="eeN-uv-Cvi" secondAttribute="leading" id="WQz-Gx-cdi"/>
+                                                <constraint firstItem="lay-ih-rnF" firstAttribute="top" secondItem="NcQ-xL-irE" secondAttribute="bottom" id="Xd0-pV-GqW"/>
+                                                <constraint firstAttribute="bottom" secondItem="lay-ih-rnF" secondAttribute="bottom" id="Yhj-Zk-jLo"/>
                                                 <constraint firstItem="NcQ-xL-irE" firstAttribute="top" secondItem="eeN-uv-Cvi" secondAttribute="top" id="d5A-cw-IKP"/>
                                                 <constraint firstAttribute="trailing" secondItem="NcQ-xL-irE" secondAttribute="trailing" id="oi2-KQ-fTK"/>
                                             </constraints>
@@ -59,6 +70,11 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="imageView" destination="NcQ-xL-irE" id="auL-4E-UmE"/>
+                                    <outlet property="imageViewHeightLayoutConstraint" destination="GhA-7g-z9a" id="o5e-yP-DBz"/>
+                                    <outlet property="titleLabel" destination="lay-ih-rnF" id="lDZ-T4-VN4"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -66,10 +82,27 @@
                             <outlet property="delegate" destination="wrs-W7-iYe" id="55i-wg-dR2"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="rbh-Nh-TVd"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sT4-C6-0L6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-379" y="589"/>
+            <point key="canvasLocation" x="-118" y="624"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XmS-PD-d89">
+            <objects>
+                <navigationController id="aoe-wK-8s2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0fa-oJ-3WV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wrs-W7-iYe" kind="relationship" relationship="rootViewController" id="z6r-lL-DYr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CGM-ol-QuN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1080" y="684"/>
         </scene>
     </scenes>
 </document>

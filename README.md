@@ -1,2 +1,2 @@
-# TwoColumnLayout
-UICollectionViewControllerLayout subclass example to implement Pinterest-style two-column photo view
+# Pinterest-Layout
+Implements a Pinterest inspired two-column layout UICollectionViewControllerLayout subclass.

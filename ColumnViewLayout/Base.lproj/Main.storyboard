@@ -13,9 +13,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <collectionViewLayout key="collectionViewLayout" id="am8-0c-h9k" customClass="PinterestLayout" customModule="ColumnViewLayout" customModuleProvider="target"/>
+                        <collectionViewLayout key="collectionViewLayout" id="am8-0c-h9k" customClass="TwoColumnLayout" customModule="ColumnViewLayout" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnnotatedPhotoCell" id="FSM-K5-yUj" customClass="AnnotatedPhotoCell" customModule="ColumnViewLayout" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCaptionCell" id="FSM-K5-yUj" customClass="PhotoCaptionCell" customModule="ColumnViewLayout" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

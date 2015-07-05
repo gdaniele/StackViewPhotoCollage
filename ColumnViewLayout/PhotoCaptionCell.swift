@@ -1,5 +1,5 @@
 //
-//  AnnotatedPhotoCell.swift
+//  PhotoCaptionCell.swift
 //  ColumnViewLayout
 //
 //  Created by Giancarlo on 7/4/15.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AnnotatedPhotoCell: UICollectionViewCell {
+// Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
+class PhotoCaptionCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,7 +25,7 @@ class AnnotatedPhotoCell: UICollectionViewCell {
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes!) {
         super.applyLayoutAttributes(layoutAttributes)
-        let attributes = layoutAttributes as! PinterestLayoutAttributes
+        let attributes = layoutAttributes as! TwoColumnLayoutAttributes
         
         imageViewHeightLayoutConstraint.constant = attributes.photoHeight
     }

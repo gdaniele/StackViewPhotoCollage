@@ -1,5 +1,5 @@
 //
-//  PinterestLayout.swift
+//  TwoColumnLayout.swift
 //  ColumnViewLayout
 //
 //  Created by Giancarlo on 7/4/15.
@@ -8,22 +8,23 @@
 
 import UIKit
 
-protocol PinterestLayoutDelegate: class {
+// Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
+protocol TwoColumnLayoutDelegate: class {
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
 }
 
-class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
+class TwoColumnLayoutAttributes: UICollectionViewLayoutAttributes {
     var photoHeight: CGFloat = 0
     
     override func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = super.copyWithZone(zone) as! PinterestLayoutAttributes
+        let copy = super.copyWithZone(zone) as! TwoColumnLayoutAttributes
         copy.photoHeight = photoHeight
         return copy
     }
     
     override func isEqual(object: AnyObject?) -> Bool {
-        if let attributes = object as? PinterestLayoutAttributes {
+        if let attributes = object as? TwoColumnLayoutAttributes {
             if attributes.photoHeight == photoHeight {
                 return super.isEqual(object)
             }
@@ -32,12 +33,12 @@ class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
     }
 }
 
-class PinterestLayout: UICollectionViewLayout {
-    weak var delegate: PinterestLayoutDelegate!
+class TwoColumnLayout: UICollectionViewLayout {
+    weak var delegate: TwoColumnLayoutDelegate!
     var numberOfColumns = 1
     var cellPadding: CGFloat = 0
 
-    var cache = [PinterestLayoutAttributes]()
+    var cache = [TwoColumnLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {
         get {
@@ -47,7 +48,7 @@ class PinterestLayout: UICollectionViewLayout {
     }
     
     override class func layoutAttributesClass() -> AnyClass {
-        return PinterestLayoutAttributes.self
+        return TwoColumnLayoutAttributes.self
     }
     
     override func collectionViewContentSize() -> CGSize {
@@ -76,7 +77,7 @@ class PinterestLayout: UICollectionViewLayout {
                 let height = cellPadding + photoHeight + annotationHeight + cellPadding
 
                 let frame = CGRectInset(CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height), cellPadding, cellPadding)
-                let attributes = PinterestLayoutAttributes(forCellWithIndexPath: indexPath)
+                let attributes = TwoColumnLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.frame = frame
                 attributes.photoHeight = photoHeight
                 cache.append(attributes)
@@ -88,7 +89,7 @@ class PinterestLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
-        let attributes = PinterestLayoutAttributes(forCellWithIndexPath: indexPath)
+        let attributes = TwoColumnLayoutAttributes(forCellWithIndexPath: indexPath)
         let frame = CGRectInset(CGRect(x: -231, y: -231, width: 1, height: 1), cellPadding, cellPadding)
 
         attributes.frame = frame

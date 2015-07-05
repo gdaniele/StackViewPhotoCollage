@@ -3,4 +3,4 @@ Implements a Pinterest inspired two-column layout UICollectionViewControllerLayo
 
 Screenshot
 ---------
-(docs/assets/two-col.png)!["Two-column layout"]
+!["Two-column layout"](docs/assets/two-col.png)

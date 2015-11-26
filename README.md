@@ -1,4 +1,4 @@
-# Pinterest-Layout
+# Two-Column-UICollectionView
 Implements a Pinterest inspired two-column layout UICollectionViewControllerLayout subclass.
 
 Screenshot

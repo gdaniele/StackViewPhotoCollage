@@ -23,7 +23,7 @@ class PhotoCaptionCell: UICollectionViewCell {
         }
     }
     
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes!) {
+    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
         super.applyLayoutAttributes(layoutAttributes)
         let attributes = layoutAttributes as! TwoColumnLayoutAttributes
         

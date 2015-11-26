@@ -88,7 +88,7 @@ class TwoColumnLayout: UICollectionViewLayout {
         }
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = TwoColumnLayoutAttributes(forCellWithIndexPath: indexPath)
         let frame = CGRectInset(CGRect(x: -231, y: -231, width: 1, height: 1), cellPadding, cellPadding)
 
@@ -97,7 +97,7 @@ class TwoColumnLayout: UICollectionViewLayout {
         return attributes
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         for attributes in cache {
             if CGRectIntersectsRect(attributes.frame, rect) {

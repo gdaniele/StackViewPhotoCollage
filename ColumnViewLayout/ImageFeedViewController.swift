@@ -9,49 +9,54 @@
 import UIKit
 import AVFoundation
 
-public let kItemCornerRadius: CGFloat = 5
-public let kDefaultNumberOfColumns = 2
-public let kSideMargin: CGFloat = 4
-
 // Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
 class ImageFeedViewController: UICollectionViewController {
-    let kCollectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
-    let kCollectionViewSideInset: CGFloat = 5
-    let kCollectionViewBottomInset: CGFloat = 10
-    var numberOfColumns: Int = kDefaultNumberOfColumns
-    private var columnsControl: UISegmentedControl?
-    
-    var photos = Photo.allPhotos()
+	// MARK:- Layout Concerns
+    private let kCollectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
+    private let kCollectionViewSideInset: CGFloat = 5
+    private let kCollectionViewBottomInset: CGFloat = 10
+    private var numberOfColumns: Int = 2
+	
+	// MARK:- Data
+    private let photos = Photo.allPhotos()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let patternImage = UIImage(named: "pattern") {
-            view.backgroundColor = UIColor(patternImage: patternImage)
-        }
-        
-        title = "Two-Column Layout"
-        
-        collectionView!.backgroundColor = UIColor.clearColor()
-        collectionView!.contentInset = UIEdgeInsetsMake(kCollectionViewTopInset, kCollectionViewSideInset, kCollectionViewBottomInset, kCollectionViewSideInset)
-        let size = CGRectGetWidth(collectionView!.bounds) / 2
-        let layout = collectionViewLayout as! TwoColumnLayout
-        layout.cellPadding = kCollectionViewSideInset
-        layout.delegate = self
-        layout.numberOfColumns = numberOfColumns
+		
+		setUI()
     }
-
+	
+	private func setUI() {
+		// Set background
+		if let patternImage = UIImage(named: "pattern") {
+			view.backgroundColor = UIColor(patternImage: patternImage)
+		}
+		
+		// Set title
+		title = "Two-Column Layout"
+		
+		// Set generic styling
+		collectionView?.backgroundColor = UIColor.clearColor()
+		collectionView?.contentInset = UIEdgeInsetsMake(kCollectionViewTopInset, kCollectionViewSideInset, kCollectionViewBottomInset, kCollectionViewSideInset)
+		let layout = collectionViewLayout as! TwoColumnLayout
+		
+		layout.cellPadding = kCollectionViewSideInset
+		layout.delegate = self
+		layout.numberOfColumns = numberOfColumns
+	}
 }
 
 extension ImageFeedViewController {
+	// MARK:- UICollectionViewDelegate
+	
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
-    
+	
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCaptionCell", forIndexPath: indexPath) as! PhotoCaptionCell
         cell.photo = photos[indexPath.item]
-        cell.cornerRadius = kItemCornerRadius
+        cell.cornerRadius = 5
         return cell
     }
     

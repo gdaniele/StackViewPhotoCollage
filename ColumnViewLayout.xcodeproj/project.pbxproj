@@ -17,15 +17,6 @@
 		B3E33CCA1B487BE900E2192C /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC91B487BE900E2192C /* Photo.swift */; };
 		B3E33CCF1B48809100E2192C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CCE1B48809100E2192C /* UIView+Extensions.swift */; };
 		B3E33CD21B48B0B200E2192C /* PhotoCaptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */; };
-		B3E33CF71B498D6300E2192C /* otter-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CEE1B498D6300E2192C /* otter-1.jpg */; };
-		B3E33CF81B498D6300E2192C /* otter-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CEF1B498D6300E2192C /* otter-2.jpg */; };
-		B3E33CF91B498D6300E2192C /* otter-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CF01B498D6300E2192C /* otter-3.jpg */; };
-		B3E33CFA1B498D6300E2192C /* otter-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CF11B498D6300E2192C /* otter-4.jpg */; };
-		B3E33CFB1B498D6300E2192C /* otter-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CF21B498D6300E2192C /* otter-5.jpg */; };
-		B3E33CFC1B498D6300E2192C /* otter-6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CF31B498D6300E2192C /* otter-6.jpg */; };
-		B3E33CFD1B498D6300E2192C /* otter-7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CF41B498D6300E2192C /* otter-7.jpg */; };
-		B3E33CFE1B498D6300E2192C /* otter-8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CF51B498D6300E2192C /* otter-8.jpg */; };
-		B3E33CFF1B498D6300E2192C /* otter-9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CF61B498D6300E2192C /* otter-9.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,15 +44,6 @@
 		B3E33CC91B487BE900E2192C /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B3E33CCE1B48809100E2192C /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptionCell.swift; sourceTree = "<group>"; };
-		B3E33CEE1B498D6300E2192C /* otter-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-1.jpg"; sourceTree = "<group>"; };
-		B3E33CEF1B498D6300E2192C /* otter-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-2.jpg"; sourceTree = "<group>"; };
-		B3E33CF01B498D6300E2192C /* otter-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-3.jpg"; sourceTree = "<group>"; };
-		B3E33CF11B498D6300E2192C /* otter-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-4.jpg"; sourceTree = "<group>"; };
-		B3E33CF21B498D6300E2192C /* otter-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-5.jpg"; sourceTree = "<group>"; };
-		B3E33CF31B498D6300E2192C /* otter-6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-6.jpg"; sourceTree = "<group>"; };
-		B3E33CF41B498D6300E2192C /* otter-7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-7.jpg"; sourceTree = "<group>"; };
-		B3E33CF51B498D6300E2192C /* otter-8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-8.jpg"; sourceTree = "<group>"; };
-		B3E33CF61B498D6300E2192C /* otter-9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "otter-9.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +147,6 @@
 		B3E33CC21B48741A00E2192C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B3E33CD31B48B7C800E2192C /* Assets */,
 				B3E33CA21B48731A00E2192C /* Main.storyboard */,
 				B3E33CA71B48731A00E2192C /* LaunchScreen.xib */,
 				B3E33CA51B48731A00E2192C /* Images.xcassets */,
@@ -197,22 +178,6 @@
 				B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		B3E33CD31B48B7C800E2192C /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				B3E33CEE1B498D6300E2192C /* otter-1.jpg */,
-				B3E33CEF1B498D6300E2192C /* otter-2.jpg */,
-				B3E33CF01B498D6300E2192C /* otter-3.jpg */,
-				B3E33CF11B498D6300E2192C /* otter-4.jpg */,
-				B3E33CF21B498D6300E2192C /* otter-5.jpg */,
-				B3E33CF31B498D6300E2192C /* otter-6.jpg */,
-				B3E33CF41B498D6300E2192C /* otter-7.jpg */,
-				B3E33CF51B498D6300E2192C /* otter-8.jpg */,
-				B3E33CF61B498D6300E2192C /* otter-9.jpg */,
-			);
-			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,17 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E33CA41B48731A00E2192C /* Main.storyboard in Resources */,
-				B3E33CFE1B498D6300E2192C /* otter-8.jpg in Resources */,
-				B3E33CFC1B498D6300E2192C /* otter-6.jpg in Resources */,
-				B3E33CFB1B498D6300E2192C /* otter-5.jpg in Resources */,
-				B3E33CFA1B498D6300E2192C /* otter-4.jpg in Resources */,
-				B3E33CF81B498D6300E2192C /* otter-2.jpg in Resources */,
-				B3E33CF71B498D6300E2192C /* otter-1.jpg in Resources */,
 				B3E33CA91B48731A00E2192C /* LaunchScreen.xib in Resources */,
-				B3E33CFF1B498D6300E2192C /* otter-9.jpg in Resources */,
-				B3E33CF91B498D6300E2192C /* otter-3.jpg in Resources */,
 				B3E33CA61B48731A00E2192C /* Images.xcassets in Resources */,
-				B3E33CFD1B498D6300E2192C /* otter-7.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

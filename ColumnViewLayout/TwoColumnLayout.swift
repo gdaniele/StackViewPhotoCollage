@@ -15,7 +15,7 @@ protocol TwoColumnLayoutDelegate: class {
 }
 
 class TwoColumnLayoutAttributes: UICollectionViewLayoutAttributes {
-    private var photoHeight: CGFloat = 0
+    var photoHeight: CGFloat = 0
     
     override func copyWithZone(zone: NSZone) -> AnyObject {
         let copy = super.copyWithZone(zone) as! TwoColumnLayoutAttributes

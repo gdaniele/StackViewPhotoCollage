@@ -59,7 +59,6 @@ extension ImageFeedViewController {
         cell.cornerRadius = 5
         return cell
     }
-    
 }
 
 extension ImageFeedViewController: TwoColumnLayoutDelegate {
@@ -72,5 +71,4 @@ extension ImageFeedViewController: TwoColumnLayoutDelegate {
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
         return 30
     }
-    
 }

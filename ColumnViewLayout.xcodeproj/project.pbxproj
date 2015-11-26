@@ -82,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3C2A4621C07920700CD697E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		B3E33C901B48731A00E2192C = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +111,12 @@
 		B3E33C9B1B48731A00E2192C /* ColumnViewLayout */ = {
 			isa = PBXGroup;
 			children = (
-				B3E33CC61B48754100E2192C /* Layouts */,
+				B3E33CD01B48B0A100E2192C /* Views */,
+				B3C2A4621C07920700CD697E /* Components */,
 				B3E33CC31B48742700E2192C /* System */,
 				B3E33CC21B48741A00E2192C /* UI */,
 				B3E33CC11B48741500E2192C /* Models */,
 				B3E33CC01B48741200E2192C /* Extensions */,
-				B3E33CBF1B48741000E2192C /* Controllers */,
 				B3E33C9C1B48731A00E2192C /* Supporting Files */,
 			);
 			path = ColumnViewLayout;
@@ -117,7 +125,6 @@
 		B3E33C9C1B48731A00E2192C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B3E33C9D1B48731A00E2192C /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,14 +144,6 @@
 				B3E33CB31B48731A00E2192C /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B3E33CBF1B48741000E2192C /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		B3E33CC01B48741200E2192C /* Extensions */ = {
@@ -167,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				B3E33CD31B48B7C800E2192C /* Assets */,
-				B3E33CD01B48B0A100E2192C /* Views */,
 				B3E33CA21B48731A00E2192C /* Main.storyboard */,
 				B3E33CA71B48731A00E2192C /* LaunchScreen.xib */,
 				B3E33CA51B48731A00E2192C /* Images.xcassets */,
@@ -178,6 +176,7 @@
 		B3E33CC31B48742700E2192C /* System */ = {
 			isa = PBXGroup;
 			children = (
+				B3E33C9D1B48731A00E2192C /* Info.plist */,
 				B3E33C9E1B48731A00E2192C /* AppDelegate.swift */,
 			);
 			name = System;
@@ -194,6 +193,7 @@
 		B3E33CD01B48B0A100E2192C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3E33CC61B48754100E2192C /* Layouts */,
 				B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */,
 			);
 			name = Views;

@@ -15,7 +15,7 @@ protocol TwoColumnLayoutDelegate: class {
 }
 
 class TwoColumnLayoutAttributes: UICollectionViewLayoutAttributes {
-    var photoHeight: CGFloat = 0
+    private var photoHeight: CGFloat = 0
     
     override func copyWithZone(zone: NSZone) -> AnyObject {
         let copy = super.copyWithZone(zone) as! TwoColumnLayoutAttributes
@@ -34,11 +34,13 @@ class TwoColumnLayoutAttributes: UICollectionViewLayoutAttributes {
 }
 
 class TwoColumnLayout: UICollectionViewLayout {
+	// MARK:- Public API
     weak var delegate: TwoColumnLayoutDelegate!
-    var numberOfColumns = 1
-    var cellPadding: CGFloat = 0
-
-    var cache = [TwoColumnLayoutAttributes]()
+	var numberOfColumns = 1
+	var cellPadding: CGFloat = 0
+	
+	// MARK:- Layout Concerns
+    private var cache = [TwoColumnLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {
         get {
@@ -106,5 +108,4 @@ class TwoColumnLayout: UICollectionViewLayout {
         }
         return layoutAttributes
     }
-    
 }

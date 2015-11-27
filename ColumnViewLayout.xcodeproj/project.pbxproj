@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3DE9D041C090F48001DA6CD /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9CFC1C090F48001DA6CD /* ALView+PureLayout.m */; };
+		B3DE9D051C090F48001DA6CD /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9CFE1C090F48001DA6CD /* NSArray+PureLayout.m */; };
+		B3DE9D061C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9D001C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m */; };
 		B3E33C9F1B48731A00E2192C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33C9E1B48731A00E2192C /* AppDelegate.swift */; };
 		B3E33CA41B48731A00E2192C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA21B48731A00E2192C /* Main.storyboard */; };
 		B3E33CA61B48731A00E2192C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA51B48731A00E2192C /* Images.xcassets */; };
@@ -30,6 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3DE9CFB1C090F48001DA6CD /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
+		B3DE9CFC1C090F48001DA6CD /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
+		B3DE9CFD1C090F48001DA6CD /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		B3DE9CFE1C090F48001DA6CD /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		B3DE9CFF1C090F48001DA6CD /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		B3DE9D001C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		B3DE9D011C090F48001DA6CD /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
+		B3DE9D021C090F48001DA6CD /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
+		B3DE9D031C090F48001DA6CD /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 		B3E33C991B48731A00E2192C /* ColumnViewLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumnViewLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E33C9D1B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33C9E1B48731A00E2192C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,10 +84,36 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		B3DE9CF91C090F29001DA6CD /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				B3DE9CFA1C090F48001DA6CD /* PureLayout */,
+			);
+			name = Vendor;
+			path = ColumnViewLayout;
+			sourceTree = "<group>";
+		};
+		B3DE9CFA1C090F48001DA6CD /* PureLayout */ = {
+			isa = PBXGroup;
+			children = (
+				B3DE9CFB1C090F48001DA6CD /* ALView+PureLayout.h */,
+				B3DE9CFC1C090F48001DA6CD /* ALView+PureLayout.m */,
+				B3DE9CFD1C090F48001DA6CD /* NSArray+PureLayout.h */,
+				B3DE9CFE1C090F48001DA6CD /* NSArray+PureLayout.m */,
+				B3DE9CFF1C090F48001DA6CD /* NSLayoutConstraint+PureLayout.h */,
+				B3DE9D001C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m */,
+				B3DE9D011C090F48001DA6CD /* PureLayout+Internal.h */,
+				B3DE9D021C090F48001DA6CD /* PureLayout.h */,
+				B3DE9D031C090F48001DA6CD /* PureLayoutDefines.h */,
+			);
+			path = PureLayout;
+			sourceTree = "<group>";
+		};
 		B3E33C901B48731A00E2192C = {
 			isa = PBXGroup;
 			children = (
 				B3E33C9B1B48731A00E2192C /* ColumnViewLayout */,
+				B3DE9CF91C090F29001DA6CD /* Vendor */,
 				B3E33CB11B48731A00E2192C /* ColumnViewLayoutTests */,
 				B3E33C9A1B48731A00E2192C /* Products */,
 			);
@@ -285,6 +323,9 @@
 				B3E33CCA1B487BE900E2192C /* Photo.swift in Sources */,
 				B3E33CD21B48B0B200E2192C /* PhotoCaptionCell.swift in Sources */,
 				B3E33CC81B48755100E2192C /* TwoColumnLayout.swift in Sources */,
+				B3DE9D041C090F48001DA6CD /* ALView+PureLayout.m in Sources */,
+				B3DE9D051C090F48001DA6CD /* NSArray+PureLayout.m in Sources */,
+				B3DE9D061C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m in Sources */,
 				B3E33CCF1B48809100E2192C /* UIView+Extensions.swift in Sources */,
 				B3E33CC51B48745800E2192C /* ImageFeedViewController.swift in Sources */,
 				B3E33C9F1B48731A00E2192C /* AppDelegate.swift in Sources */,
@@ -366,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -405,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

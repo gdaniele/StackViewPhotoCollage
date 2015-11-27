@@ -16,9 +16,18 @@ class ImageFeedViewController: UICollectionViewController {
     private let kCollectionViewSideInset: CGFloat = 5
     private let kCollectionViewBottomInset: CGFloat = 10
     private var numberOfColumns: Int = 2
+	private let reuseIdentifier = "PhotoCaptionCell"
 	
 	// MARK:- Data
     private let photos = Photo.allPhotos()
+	
+	override init(collectionViewLayout layout: UICollectionViewLayout) {
+		super.init(collectionViewLayout: layout)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+	    fatalError("init(coder:) has not been implemented")
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +52,9 @@ class ImageFeedViewController: UICollectionViewController {
 		layout.cellPadding = kCollectionViewSideInset
 		layout.delegate = self
 		layout.numberOfColumns = numberOfColumns
+		
+		// Register cell identifier
+		self.collectionView?.registerClass(PhotoCaptionCell.self, forCellWithReuseIdentifier: self.reuseIdentifier)
 	}
 }
 
@@ -54,7 +66,7 @@ extension ImageFeedViewController {
     }
 	
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCaptionCell", forIndexPath: indexPath) as! PhotoCaptionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! PhotoCaptionCell
         cell.photo = photos[indexPath.item]
         cell.cornerRadius = 5
         return cell

@@ -1,6 +1,11 @@
-# Two-Column-UICollectionView
-Implements a Pinterest inspired two-column layout UICollectionViewControllerLayout subclass.
+# UIStackView Photo Collage Layout
 
-Screenshot
+A multiple-column photo collage implemented using UIStackView, UICollectionView, and a custom UICollectionViewLayout subclass.
+
+
+Screenshots
 ---------
-!["Two-column layout"](docs/assets/two-col.png)
+!["Variable height layout"](docs/assets/1.png)
+!["Variable height layout"](docs/assets/2.png)
+!["Variable height layout"](docs/assets/3.png)
+!["Variable height layout"](docs/assets/4.png)

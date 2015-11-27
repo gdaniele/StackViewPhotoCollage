@@ -16,7 +16,7 @@
 		B3E33CA91B48731A00E2192C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA71B48731A00E2192C /* LaunchScreen.xib */; };
 		B3E33CB51B48731A00E2192C /* ColumnViewLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CB41B48731A00E2192C /* ColumnViewLayoutTests.swift */; };
 		B3E33CC51B48745800E2192C /* ImageFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */; };
-		B3E33CC81B48755100E2192C /* TwoColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC71B48755100E2192C /* TwoColumnLayout.swift */; };
+		B3E33CC81B48755100E2192C /* MultipleColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */; };
 		B3E33CCA1B487BE900E2192C /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC91B487BE900E2192C /* Photo.swift */; };
 		B3E33CCF1B48809100E2192C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CCE1B48809100E2192C /* UIView+Extensions.swift */; };
 		B3E33CD21B48B0B200E2192C /* PhotoCaptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */; };
@@ -42,6 +42,7 @@
 		B3DE9D011C090F48001DA6CD /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		B3DE9D021C090F48001DA6CD /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		B3DE9D031C090F48001DA6CD /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
+		B3DE9D071C090FAA001DA6CD /* ColumnViewLayout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColumnViewLayout-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3E33C991B48731A00E2192C /* ColumnViewLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumnViewLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E33C9D1B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33C9E1B48731A00E2192C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +53,7 @@
 		B3E33CB31B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33CB41B48731A00E2192C /* ColumnViewLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnViewLayoutTests.swift; sourceTree = "<group>"; };
 		B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedViewController.swift; sourceTree = "<group>"; };
-		B3E33CC71B48755100E2192C /* TwoColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoColumnLayout.swift; sourceTree = "<group>"; };
+		B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleColumnLayout.swift; sourceTree = "<group>"; };
 		B3E33CC91B487BE900E2192C /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B3E33CCE1B48809100E2192C /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptionCell.swift; sourceTree = "<group>"; };
@@ -197,6 +198,7 @@
 			children = (
 				B3E33C9D1B48731A00E2192C /* Info.plist */,
 				B3E33C9E1B48731A00E2192C /* AppDelegate.swift */,
+				B3DE9D071C090FAA001DA6CD /* ColumnViewLayout-Bridging-Header.h */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -204,7 +206,7 @@
 		B3E33CC61B48754100E2192C /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				B3E33CC71B48755100E2192C /* TwoColumnLayout.swift */,
+				B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -322,7 +324,7 @@
 			files = (
 				B3E33CCA1B487BE900E2192C /* Photo.swift in Sources */,
 				B3E33CD21B48B0B200E2192C /* PhotoCaptionCell.swift in Sources */,
-				B3E33CC81B48755100E2192C /* TwoColumnLayout.swift in Sources */,
+				B3E33CC81B48755100E2192C /* MultipleColumnLayout.swift in Sources */,
 				B3DE9D041C090F48001DA6CD /* ALView+PureLayout.m in Sources */,
 				B3DE9D051C090F48001DA6CD /* NSArray+PureLayout.m in Sources */,
 				B3DE9D061C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m in Sources */,
@@ -411,6 +413,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "ColumnViewLayout/ColumnViewLayout-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,6 +452,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "ColumnViewLayout/ColumnViewLayout-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

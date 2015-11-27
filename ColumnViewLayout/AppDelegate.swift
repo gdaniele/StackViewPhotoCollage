@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		
 		if let uWindow = self.window {
-			let layout = TwoColumnLayout()
+			let layout = MultipleColumnLayout()
 			uWindow.rootViewController = UINavigationController(rootViewController: ImageFeedViewController(collectionViewLayout: layout))
 			uWindow.makeKeyAndVisible()
 		}

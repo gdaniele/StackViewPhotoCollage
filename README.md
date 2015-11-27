@@ -1,6 +1,6 @@
 # UIStackView Photo Collage
 
-A multiple-column photo collage implemented using UIStackView, UICollectionView, and a custom UICollectionViewLayout subclass.
+A multiple-column photo collage implemented using `UIStackView`, `UICollectionView`, and a custom `UICollectionViewLayout` subclass.
 
 ### Uses
 
@@ -17,9 +17,9 @@ Implement your own dynamic `UICollectionView` backed photo collage with caption 
 ```Swift
 let multiColumnLayout = MultipleColumnLayout()
 
-multiColumnLayout.cellPadding = kCollectionViewSideInset
+multiColumnLayout.cellPadding = 5
 multiColumnLayout.delegate = self
-multiColumnLayout.numberOfColumns = numberOfColumns
+multiColumnLayout.numberOfColumns = 2
 
 let myCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: multiColumnLayout)
 ```

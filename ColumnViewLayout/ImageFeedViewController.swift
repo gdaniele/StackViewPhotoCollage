@@ -15,10 +15,20 @@ class ImageFeedViewController: UICollectionViewController {
     private let kCollectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
     private let kCollectionViewSideInset: CGFloat = 5
     private let kCollectionViewBottomInset: CGFloat = 10
-    private var numberOfColumns: Int = 2
+    private var numberOfColumns: Int = 1
+	private let reuseIdentifier = "PhotoCaptionCell"
+	private let titleFont: UIFont = UIFont(name: "Avenir", size: 15)!
 	
 	// MARK:- Data
     private let photos = Photo.allPhotos()
+	
+	override init(collectionViewLayout layout: UICollectionViewLayout) {
+		super.init(collectionViewLayout: layout)		
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+	    fatalError("init(coder:) has not been implemented")
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +43,19 @@ class ImageFeedViewController: UICollectionViewController {
 		}
 		
 		// Set title
-		title = "Two-Column Layout"
+		title = "Variable height layout"
 		
 		// Set generic styling
 		collectionView?.backgroundColor = UIColor.clearColor()
 		collectionView?.contentInset = UIEdgeInsetsMake(kCollectionViewTopInset, kCollectionViewSideInset, kCollectionViewBottomInset, kCollectionViewSideInset)
-		let layout = collectionViewLayout as! TwoColumnLayout
+		let layout = collectionViewLayout as! MultipleColumnLayout
 		
 		layout.cellPadding = kCollectionViewSideInset
 		layout.delegate = self
 		layout.numberOfColumns = numberOfColumns
+		
+		// Register cell identifier
+		self.collectionView?.registerClass(PhotoCaptionCell.self, forCellWithReuseIdentifier: self.reuseIdentifier)
 	}
 }
 
@@ -54,14 +67,16 @@ extension ImageFeedViewController {
     }
 	
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCaptionCell", forIndexPath: indexPath) as! PhotoCaptionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! PhotoCaptionCell
         cell.photo = photos[indexPath.item]
         cell.cornerRadius = 5
+		cell.titleFont = self.titleFont
+		
         return cell
     }
 }
 
-extension ImageFeedViewController: TwoColumnLayoutDelegate {
+extension ImageFeedViewController: MultipleColumnLayoutDelegate {
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
         let photo = photos[indexPath.item]
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
@@ -69,6 +84,8 @@ extension ImageFeedViewController: TwoColumnLayoutDelegate {
     }
     
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
-        return 30
+		
+		let rect = NSString(string: photos[indexPath.item].caption).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: self.titleFont], context: nil)
+		return ceil(rect.height)
     }
 }

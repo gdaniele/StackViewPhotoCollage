@@ -1,5 +1,5 @@
 //
-//  TwoColumnLayout.swift
+//  MultipleColumnLayout.swift
 //  ColumnViewLayout
 //
 //  Created by Giancarlo on 7/4/15.
@@ -9,23 +9,25 @@
 import UIKit
 
 // Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
-protocol TwoColumnLayoutDelegate: class {
+protocol MultipleColumnLayoutDelegate: class {
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
 }
 
-class TwoColumnLayoutAttributes: UICollectionViewLayoutAttributes {
+class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
+	var annotationHeight: CGFloat = 0
     var photoHeight: CGFloat = 0
-    
+	
     override func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = super.copyWithZone(zone) as! TwoColumnLayoutAttributes
+        let copy = super.copyWithZone(zone) as! MultipleColumnLayoutAttributes
+		copy.annotationHeight = annotationHeight
         copy.photoHeight = photoHeight
         return copy
     }
     
     override func isEqual(object: AnyObject?) -> Bool {
-        if let attributes = object as? TwoColumnLayoutAttributes {
-            if attributes.photoHeight == photoHeight {
+        if let attributes = object as? MultipleColumnLayoutAttributes {
+            if attributes.photoHeight == photoHeight && attributes.annotationHeight == annotationHeight {
                 return super.isEqual(object)
             }
         }
@@ -33,14 +35,14 @@ class TwoColumnLayoutAttributes: UICollectionViewLayoutAttributes {
     }
 }
 
-class TwoColumnLayout: UICollectionViewLayout {
+class MultipleColumnLayout: UICollectionViewLayout {
 	// MARK:- Public API
-    weak var delegate: TwoColumnLayoutDelegate!
+    weak var delegate: MultipleColumnLayoutDelegate!
 	var numberOfColumns = 1
 	var cellPadding: CGFloat = 0
 	
 	// MARK:- Layout Concerns
-    private var cache = [TwoColumnLayoutAttributes]()
+    private var cache = [MultipleColumnLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {
         get {
@@ -50,7 +52,7 @@ class TwoColumnLayout: UICollectionViewLayout {
     }
     
     override class func layoutAttributesClass() -> AnyClass {
-        return TwoColumnLayoutAttributes.self
+        return MultipleColumnLayoutAttributes.self
     }
     
     override func collectionViewContentSize() -> CGSize {
@@ -79,9 +81,10 @@ class TwoColumnLayout: UICollectionViewLayout {
                 let height = cellPadding + photoHeight + annotationHeight + cellPadding
 
                 let frame = CGRectInset(CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height), cellPadding, cellPadding)
-                let attributes = TwoColumnLayoutAttributes(forCellWithIndexPath: indexPath)
+                let attributes = MultipleColumnLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.frame = frame
                 attributes.photoHeight = photoHeight
+				attributes.annotationHeight = annotationHeight
                 cache.append(attributes)
                 contentHeight = max(contentHeight, CGRectGetMaxY(frame))
                 yOffsets[column] = yOffsets[column] + height
@@ -91,7 +94,7 @@ class TwoColumnLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = TwoColumnLayoutAttributes(forCellWithIndexPath: indexPath)
+        let attributes = MultipleColumnLayoutAttributes(forCellWithIndexPath: indexPath)
         let frame = CGRectInset(CGRect(x: -231, y: -231, width: 1, height: 1), cellPadding, cellPadding)
 
         attributes.frame = frame

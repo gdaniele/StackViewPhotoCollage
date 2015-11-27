@@ -13,6 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		
+		if self.window == nil {
+			self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+		}
+		
+		if let uWindow = self.window {
+			let layout = MultipleColumnLayout()
+			uWindow.rootViewController = UINavigationController(rootViewController: ImageFeedViewController(collectionViewLayout: layout))
+			uWindow.makeKeyAndVisible()
+		}
+		
         return true
     }
 }

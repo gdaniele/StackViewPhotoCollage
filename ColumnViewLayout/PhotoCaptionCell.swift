@@ -10,10 +10,38 @@ import UIKit
 
 // Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
 class PhotoCaptionCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageViewHeightLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
-    
+	// MARK:- Layout Concerns
+	private var textHeightLayoutConstraint: NSLayoutConstraint?
+	
+	// MARK:- Lazy UI
+	private lazy var imageView: UIImageView = {
+		let imageView = UIImageView()
+		imageView.contentMode = .ScaleAspectFill
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+
+		return imageView
+	}()
+	private lazy var mainView: UIView = {
+		let view = UIStackView(arrangedSubviews: [self.imageView, self.titleLabel])
+		
+		view.axis = UILayoutConstraintAxis.Vertical
+		view.distribution = UIStackViewDistribution.EqualSpacing
+		view.alignment = UIStackViewAlignment.Fill
+		view.layoutMarginsRelativeArrangement = true
+
+		return view
+	}()
+	var titleFont: UIFont = UIFont(name: "Avenir", size: 15)!
+	private lazy var titleLabel: UILabel = {
+		let label = UILabel()
+		label.font = self.titleFont
+		label.textAlignment = .Left
+		label.numberOfLines = 0
+		label.lineBreakMode = .ByWordWrapping
+		label.translatesAutoresizingMaskIntoConstraints = false
+
+		return label
+	}()
     var photo: Photo? {
         didSet {
             if let photo = photo {
@@ -22,11 +50,34 @@ class PhotoCaptionCell: UICollectionViewCell {
             }
         }
     }
-    
+	
+	override init(frame: CGRect) {
+		super.init(frame: CGRectZero)
+		self.textHeightLayoutConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 30)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+	    fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func layoutSubviews() {
+		self.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.2)
+		
+		// Add views to contentView
+		self.addSubview(self.mainView)
+		
+		// Set mainViewContstraints
+		self.mainView.autoPinEdgesToSuperviewEdges()
+		if let uHeightConstraint = self.textHeightLayoutConstraint {
+			self.addConstraint(uHeightConstraint)
+		}
+	}
+	
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
         super.applyLayoutAttributes(layoutAttributes)
-        let attributes = layoutAttributes as! TwoColumnLayoutAttributes
-        
-        imageViewHeightLayoutConstraint.constant = attributes.photoHeight
+		
+		if let attributes = layoutAttributes as? MultipleColumnLayoutAttributes {
+			textHeightLayoutConstraint?.constant = attributes.annotationHeight
+		}
     }
 }

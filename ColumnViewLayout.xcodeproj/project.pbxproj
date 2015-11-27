@@ -11,7 +11,6 @@
 		B3DE9D051C090F48001DA6CD /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9CFE1C090F48001DA6CD /* NSArray+PureLayout.m */; };
 		B3DE9D061C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9D001C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m */; };
 		B3E33C9F1B48731A00E2192C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33C9E1B48731A00E2192C /* AppDelegate.swift */; };
-		B3E33CA41B48731A00E2192C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA21B48731A00E2192C /* Main.storyboard */; };
 		B3E33CA61B48731A00E2192C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA51B48731A00E2192C /* Images.xcassets */; };
 		B3E33CA91B48731A00E2192C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA71B48731A00E2192C /* LaunchScreen.xib */; };
 		B3E33CB51B48731A00E2192C /* ColumnViewLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CB41B48731A00E2192C /* ColumnViewLayoutTests.swift */; };
@@ -46,7 +45,6 @@
 		B3E33C991B48731A00E2192C /* ColumnViewLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumnViewLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E33C9D1B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33C9E1B48731A00E2192C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3E33CA31B48731A00E2192C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3E33CA51B48731A00E2192C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B3E33CA81B48731A00E2192C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B3E33CAE1B48731A00E2192C /* ColumnViewLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColumnViewLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +105,8 @@
 				B3DE9D021C090F48001DA6CD /* PureLayout.h */,
 				B3DE9D031C090F48001DA6CD /* PureLayoutDefines.h */,
 			);
-			path = PureLayout;
+			name = PureLayout;
+			path = Vendor/PureLayout;
 			sourceTree = "<group>";
 		};
 		B3E33C901B48731A00E2192C = {
@@ -186,7 +185,6 @@
 		B3E33CC21B48741A00E2192C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B3E33CA21B48731A00E2192C /* Main.storyboard */,
 				B3E33CA71B48731A00E2192C /* LaunchScreen.xib */,
 				B3E33CA51B48731A00E2192C /* Images.xcassets */,
 			);
@@ -302,7 +300,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E33CA41B48731A00E2192C /* Main.storyboard in Resources */,
 				B3E33CA91B48731A00E2192C /* LaunchScreen.xib in Resources */,
 				B3E33CA61B48731A00E2192C /* Images.xcassets in Resources */,
 			);
@@ -353,14 +350,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B3E33CA21B48731A00E2192C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3E33CA31B48731A00E2192C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B3E33CA71B48731A00E2192C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

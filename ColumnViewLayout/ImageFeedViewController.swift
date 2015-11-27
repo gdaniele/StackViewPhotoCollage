@@ -23,7 +23,7 @@ class ImageFeedViewController: UICollectionViewController {
     private let photos = Photo.allPhotos()
 	
 	override init(collectionViewLayout layout: UICollectionViewLayout) {
-		super.init(collectionViewLayout: layout)
+		super.init(collectionViewLayout: layout)		
 	}
 
 	required init?(coder aDecoder: NSCoder) {

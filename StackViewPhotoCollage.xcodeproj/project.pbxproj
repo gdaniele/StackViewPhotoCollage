@@ -38,10 +38,10 @@
 		B3E33CB31B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33CB41B48731A00E2192C /* StackViewPhotoCollageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewPhotoCollageTests.swift; sourceTree = "<group>"; };
 		B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedViewController.swift; sourceTree = "<group>"; };
-		B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleColumnLayout.swift; path = ColumnViewLayout/MultipleColumnLayout.swift; sourceTree = "<group>"; };
+		B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleColumnLayout.swift; path = StackViewPhotoCollage/MultipleColumnLayout.swift; sourceTree = "<group>"; };
 		B3E33CC91B487BE900E2192C /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B3E33CCE1B48809100E2192C /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCaptionCell.swift; path = ColumnViewLayout/PhotoCaptionCell.swift; sourceTree = "<group>"; };
+		B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCaptionCell.swift; path = StackViewPhotoCollage/PhotoCaptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

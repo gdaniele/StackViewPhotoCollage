@@ -4,7 +4,7 @@ Render photos and captions beautifully using `UIStackView` and `UICollectionView
 
 Compatible with iOS 9+ and the most recent Swift release (Swift 2.1).
 
-**UIStackView-Photo-Collage** is implemented using `UIStackView`, `UICollectionView`, and a custom `UICollectionViewLayout` subclass.
+**StackViewPhotoCollage** is implemented using `UIStackView`, `UICollectionView`, and a custom `UICollectionViewLayout` subclass.
 
 ### Getting started
 

@@ -36,7 +36,14 @@ let myCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout:
 
 ### Screenshots
 
-!["Variable height layout"](docs/assets/1.jpg)
-!["Variable height layout"](docs/assets/2.jpg)
-!["Variable height layout"](docs/assets/3.jpg)
-!["Variable height layout"](docs/assets/4.jpg)
+#### One column
+<img src="docs/assets/1.jpg" width="550">
+
+#### Two column
+<img src="docs/assets/2.jpg" width="550">
+
+#### Three columns
+<img src="docs/assets/3.jpg" width="550">
+
+#### Four column
+<img src="docs/assets/4.jpg" width="550">

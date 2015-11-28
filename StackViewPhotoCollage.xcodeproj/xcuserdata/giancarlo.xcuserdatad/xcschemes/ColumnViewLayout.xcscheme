@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3E33C981B48731A00E2192C"
-               BuildableName = "ColumnViewLayout.app"
-               BlueprintName = "ColumnViewLayout"
-               ReferencedContainer = "container:ColumnViewLayout.xcodeproj">
+               BuildableName = "StackViewPhotoCollage.app"
+               BlueprintName = "StackViewPhotoCollage"
+               ReferencedContainer = "container:StackViewPhotoCollage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3E33CAD1B48731A00E2192C"
-               BuildableName = "ColumnViewLayoutTests.xctest"
-               BlueprintName = "ColumnViewLayoutTests"
-               ReferencedContainer = "container:ColumnViewLayout.xcodeproj">
+               BuildableName = "StackViewPhotoCollage.xctest"
+               BlueprintName = "StackViewPhotoCollageTests"
+               ReferencedContainer = "container:StackViewPhotoCollage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3E33CAD1B48731A00E2192C"
-               BuildableName = "ColumnViewLayoutTests.xctest"
-               BlueprintName = "ColumnViewLayoutTests"
-               ReferencedContainer = "container:ColumnViewLayout.xcodeproj">
+               BuildableName = "StackViewPhotoCollage.xctest"
+               BlueprintName = "StackViewPhotoCollageTests"
+               ReferencedContainer = "container:StackViewPhotoCollage.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3E33C981B48731A00E2192C"
-            BuildableName = "ColumnViewLayout.app"
-            BlueprintName = "ColumnViewLayout"
-            ReferencedContainer = "container:ColumnViewLayout.xcodeproj">
+            BuildableName = "StackViewPhotoCollage.app"
+            BlueprintName = "StackViewPhotoCollage"
+            ReferencedContainer = "container:StackViewPhotoCollage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3E33C981B48731A00E2192C"
-            BuildableName = "ColumnViewLayout.app"
-            BlueprintName = "ColumnViewLayout"
-            ReferencedContainer = "container:ColumnViewLayout.xcodeproj">
+            BuildableName = "StackViewPhotoCollage.app"
+            BlueprintName = "StackViewPhotoCollage"
+            ReferencedContainer = "container:StackViewPhotoCollage.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3E33C981B48731A00E2192C"
-            BuildableName = "ColumnViewLayout.app"
-            BlueprintName = "ColumnViewLayout"
-            ReferencedContainer = "container:ColumnViewLayout.xcodeproj">
+            BuildableName = "StackViewPhotoCollage.app"
+            BlueprintName = "StackViewPhotoCollage"
+            ReferencedContainer = "container:StackViewPhotoCollage.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

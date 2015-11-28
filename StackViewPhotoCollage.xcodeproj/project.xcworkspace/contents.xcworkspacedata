@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ColumnViewLayout.xcodeproj">
+      location = "self:/Users/giancarlo/Software/personal/Pinterest-Layout/StackViewPhotoCollage.xcodeproj">
    </FileRef>
 </Workspace>

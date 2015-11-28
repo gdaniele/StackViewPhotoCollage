@@ -10,7 +10,7 @@
 		B3E33C9F1B48731A00E2192C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33C9E1B48731A00E2192C /* AppDelegate.swift */; };
 		B3E33CA61B48731A00E2192C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA51B48731A00E2192C /* Images.xcassets */; };
 		B3E33CA91B48731A00E2192C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA71B48731A00E2192C /* LaunchScreen.xib */; };
-		B3E33CB51B48731A00E2192C /* ColumnViewLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CB41B48731A00E2192C /* ColumnViewLayoutTests.swift */; };
+		B3E33CB51B48731A00E2192C /* StackViewPhotoCollageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CB41B48731A00E2192C /* StackViewPhotoCollageTests.swift */; };
 		B3E33CC51B48745800E2192C /* ImageFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */; };
 		B3E33CC81B48755100E2192C /* MultipleColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */; };
 		B3E33CCA1B487BE900E2192C /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33CC91B487BE900E2192C /* Photo.swift */; };
@@ -29,14 +29,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B3E33C991B48731A00E2192C /* ColumnViewLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumnViewLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E33C991B48731A00E2192C /* StackViewPhotoCollage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackViewPhotoCollage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E33C9D1B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33C9E1B48731A00E2192C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E33CA51B48731A00E2192C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B3E33CA81B48731A00E2192C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B3E33CAE1B48731A00E2192C /* ColumnViewLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColumnViewLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E33CAE1B48731A00E2192C /* StackViewPhotoCollage.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackViewPhotoCollage.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E33CB31B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3E33CB41B48731A00E2192C /* ColumnViewLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnViewLayoutTests.swift; sourceTree = "<group>"; };
+		B3E33CB41B48731A00E2192C /* StackViewPhotoCollageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewPhotoCollageTests.swift; sourceTree = "<group>"; };
 		B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedViewController.swift; sourceTree = "<group>"; };
 		B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleColumnLayout.swift; path = ColumnViewLayout/MultipleColumnLayout.swift; sourceTree = "<group>"; };
 		B3E33CC91B487BE900E2192C /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -73,8 +73,8 @@
 		B3E33C901B48731A00E2192C = {
 			isa = PBXGroup;
 			children = (
-				B3E33C9B1B48731A00E2192C /* ColumnViewLayout */,
-				B3E33CB11B48731A00E2192C /* ColumnViewLayoutTests */,
+				B3E33C9B1B48731A00E2192C /* StackViewPhotoCollage */,
+				B3E33CB11B48731A00E2192C /* StackViewPhotoCollageTests */,
 				B3E33C9A1B48731A00E2192C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,13 +82,13 @@
 		B3E33C9A1B48731A00E2192C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3E33C991B48731A00E2192C /* ColumnViewLayout.app */,
-				B3E33CAE1B48731A00E2192C /* ColumnViewLayoutTests.xctest */,
+				B3E33C991B48731A00E2192C /* StackViewPhotoCollage.app */,
+				B3E33CAE1B48731A00E2192C /* StackViewPhotoCollage.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B3E33C9B1B48731A00E2192C /* ColumnViewLayout */ = {
+		B3E33C9B1B48731A00E2192C /* StackViewPhotoCollage */ = {
 			isa = PBXGroup;
 			children = (
 				B3E33CD01B48B0A100E2192C /* Views */,
@@ -99,7 +99,7 @@
 				B3E33CC01B48741200E2192C /* Extensions */,
 				B3E33C9C1B48731A00E2192C /* Supporting Files */,
 			);
-			path = ColumnViewLayout;
+			path = StackViewPhotoCollage;
 			sourceTree = "<group>";
 		};
 		B3E33C9C1B48731A00E2192C /* Supporting Files */ = {
@@ -109,13 +109,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B3E33CB11B48731A00E2192C /* ColumnViewLayoutTests */ = {
+		B3E33CB11B48731A00E2192C /* StackViewPhotoCollageTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3E33CB41B48731A00E2192C /* ColumnViewLayoutTests.swift */,
+				B3E33CB41B48731A00E2192C /* StackViewPhotoCollageTests.swift */,
 				B3E33CB21B48731A00E2192C /* Supporting Files */,
 			);
-			path = ColumnViewLayoutTests;
+			path = StackViewPhotoCollageTests;
 			sourceTree = "<group>";
 		};
 		B3E33CB21B48731A00E2192C /* Supporting Files */ = {
@@ -180,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B3E33C981B48731A00E2192C /* ColumnViewLayout */ = {
+		B3E33C981B48731A00E2192C /* StackViewPhotoCollage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3E33CB81B48731A00E2192C /* Build configuration list for PBXNativeTarget "ColumnViewLayout" */;
+			buildConfigurationList = B3E33CB81B48731A00E2192C /* Build configuration list for PBXNativeTarget "StackViewPhotoCollage" */;
 			buildPhases = (
 				B3E33C951B48731A00E2192C /* Sources */,
 				B3E33C961B48731A00E2192C /* Frameworks */,
@@ -192,14 +192,14 @@
 			);
 			dependencies = (
 			);
-			name = ColumnViewLayout;
+			name = StackViewPhotoCollage;
 			productName = ColumnViewLayout;
-			productReference = B3E33C991B48731A00E2192C /* ColumnViewLayout.app */;
+			productReference = B3E33C991B48731A00E2192C /* StackViewPhotoCollage.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B3E33CAD1B48731A00E2192C /* ColumnViewLayoutTests */ = {
+		B3E33CAD1B48731A00E2192C /* StackViewPhotoCollageTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3E33CBB1B48731A00E2192C /* Build configuration list for PBXNativeTarget "ColumnViewLayoutTests" */;
+			buildConfigurationList = B3E33CBB1B48731A00E2192C /* Build configuration list for PBXNativeTarget "StackViewPhotoCollageTests" */;
 			buildPhases = (
 				B3E33CAA1B48731A00E2192C /* Sources */,
 				B3E33CAB1B48731A00E2192C /* Frameworks */,
@@ -210,9 +210,9 @@
 			dependencies = (
 				B3E33CB01B48731A00E2192C /* PBXTargetDependency */,
 			);
-			name = ColumnViewLayoutTests;
+			name = StackViewPhotoCollageTests;
 			productName = ColumnViewLayoutTests;
-			productReference = B3E33CAE1B48731A00E2192C /* ColumnViewLayoutTests.xctest */;
+			productReference = B3E33CAE1B48731A00E2192C /* StackViewPhotoCollage.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B3E33C941B48731A00E2192C /* Build configuration list for PBXProject "ColumnViewLayout" */;
+			buildConfigurationList = B3E33C941B48731A00E2192C /* Build configuration list for PBXProject "StackViewPhotoCollage" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -248,8 +248,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3E33C981B48731A00E2192C /* ColumnViewLayout */,
-				B3E33CAD1B48731A00E2192C /* ColumnViewLayoutTests */,
+				B3E33C981B48731A00E2192C /* StackViewPhotoCollage */,
+				B3E33CAD1B48731A00E2192C /* StackViewPhotoCollageTests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,7 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E33CB51B48731A00E2192C /* ColumnViewLayoutTests.swift in Sources */,
+				B3E33CB51B48731A00E2192C /* StackViewPhotoCollageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +300,7 @@
 /* Begin PBXTargetDependency section */
 		B3E33CB01B48731A00E2192C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B3E33C981B48731A00E2192C /* ColumnViewLayout */;
+			target = B3E33C981B48731A00E2192C /* StackViewPhotoCollage */;
 			targetProxy = B3E33CAF1B48731A00E2192C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -407,10 +407,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ColumnViewLayout/Info.plist;
+				INFOPLIST_FILE = StackViewPhotoCollage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.giancarlo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StackViewPhotoCollage;
 			};
 			name = Debug;
 		};
@@ -418,10 +418,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ColumnViewLayout/Info.plist;
+				INFOPLIST_FILE = StackViewPhotoCollage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.giancarlo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StackViewPhotoCollage;
 			};
 			name = Release;
 		};
@@ -437,11 +437,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ColumnViewLayoutTests/Info.plist;
+				INFOPLIST_FILE = StackViewPhotoCollage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.giancarlo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumnViewLayout.app/ColumnViewLayout";
+				PRODUCT_NAME = StackViewPhotoCollage;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackViewPhotoCollage.app/StackViewPhotoCollage";
 			};
 			name = Debug;
 		};
@@ -453,18 +453,18 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ColumnViewLayoutTests/Info.plist;
+				INFOPLIST_FILE = StackViewPhotoCollage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.giancarlo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumnViewLayout.app/ColumnViewLayout";
+				PRODUCT_NAME = StackViewPhotoCollage;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackViewPhotoCollage.app/StackViewPhotoCollage";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B3E33C941B48731A00E2192C /* Build configuration list for PBXProject "ColumnViewLayout" */ = {
+		B3E33C941B48731A00E2192C /* Build configuration list for PBXProject "StackViewPhotoCollage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3E33CB61B48731A00E2192C /* Debug */,
@@ -473,7 +473,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3E33CB81B48731A00E2192C /* Build configuration list for PBXNativeTarget "ColumnViewLayout" */ = {
+		B3E33CB81B48731A00E2192C /* Build configuration list for PBXNativeTarget "StackViewPhotoCollage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3E33CB91B48731A00E2192C /* Debug */,
@@ -482,7 +482,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3E33CBB1B48731A00E2192C /* Build configuration list for PBXNativeTarget "ColumnViewLayoutTests" */ = {
+		B3E33CBB1B48731A00E2192C /* Build configuration list for PBXNativeTarget "StackViewPhotoCollageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3E33CBC1B48731A00E2192C /* Debug */,

@@ -11,7 +11,7 @@ Implement your own dynamic `UICollectionView` backed photo collage with caption 
 1. Clone this project
 2. Drag the **ColumnViewLayout/ColumnViewLayout** folder into your project in XCode
 3. Initialize a `UICollectionView` with the `MultipleColumnLayout` layout
-4. Customize your layout as follows:
+4. Customize your `MultipleColumnLayout` layout instance as follows before adding it to your `UICollectionView`
 
 ```Swift
 let multiColumnLayout = MultipleColumnLayout()

@@ -68,7 +68,8 @@ extension ImageFeedViewController {
 	
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! PhotoCaptionCell
-        cell.photo = photos[indexPath.item]
+        cell.image = photos[indexPath.item].image
+		cell.title = photos[indexPath.item].caption
         cell.cornerRadius = 5
 		cell.titleFont = self.titleFont
 		

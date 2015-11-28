@@ -43,14 +43,22 @@ class PhotoCaptionCell: UICollectionViewCell {
 
 		return label
 	}()
-    var photo: Photo? {
-        didSet {
-            if let photo = photo {
-                imageView.image = photo.image
-                titleLabel.text = photo.caption
-            }
-        }
-    }
+
+	// MARK:- Public API
+	var image: UIImage? {
+		didSet {
+			if let uImage = image {
+				imageView.image = uImage
+			}
+		}
+	}
+	var title: String? {
+		didSet {
+			if let uTitle = title {
+				titleLabel.text = uTitle
+			}
+		}
+	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: CGRectZero)

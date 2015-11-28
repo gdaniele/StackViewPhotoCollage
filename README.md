@@ -1,6 +1,6 @@
 # UIStackView Photo Collage
 
-Render photos and captions beautifully using UIStackView and UICollectionView. Includes built-in support for multiple columns (via a property setter) and multi-line captions. 
+Render photos and captions beautifully using `UIStackView` and `UICollectionView`. Includes built-in support for multiple columns (via a property setter) and multi-line captions. 
 
 Compatible with iOS 9+ and the most recent Swift release (Swift 2.1).
 

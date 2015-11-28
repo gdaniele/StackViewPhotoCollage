@@ -25,7 +25,7 @@ let myCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout:
 
 ### Screenshots
 
-!["Variable height layout"](docs/assets/1.png)
-!["Variable height layout"](docs/assets/2.png)
-!["Variable height layout"](docs/assets/3.png)
-!["Variable height layout"](docs/assets/4.png)
+!["Variable height layout"](docs/assets/1.jpg)
+!["Variable height layout"](docs/assets/2.jpg)
+!["Variable height layout"](docs/assets/3.jpg)
+!["Variable height layout"](docs/assets/4.jpg)

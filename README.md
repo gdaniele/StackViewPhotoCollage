@@ -9,7 +9,7 @@ Compatible with iOS 9+ and the most recent Swift release (Swift 2.1).
 ### Getting started
 
 1. Clone this project
-2. Drag the **ColumnViewLayout/ColumnViewLayout** folder into your project in XCode
+2. Drag the **StackViewPhotoCollage/StackViewPhotoCollage** folder into your project in XCode
 3. Initialize a `UICollectionView` with the `MultipleColumnLayout` layout
 4. Conform to `MultipleColumnLayoutDelegate` protocol on your `UICollectionView` data source (or another class) by implementing the following:
 

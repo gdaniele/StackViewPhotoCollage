@@ -6,7 +6,7 @@ A multiple-column photo collage implemented using `UIStackView`, `UICollectionVi
 
 Implement your own dynamic `UICollectionView` backed photo collage with caption support. 
 
-## Getting started
+### Getting started
 
 1. Clone this project
 2. Drag the **ColumnViewLayout** folder into your project in XCode
@@ -23,8 +23,8 @@ multiColumnLayout.numberOfColumns = 2
 let myCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: multiColumnLayout)
 ```
 
-Screenshots
----------
+### Screenshots
+
 !["Variable height layout"](docs/assets/1.png)
 !["Variable height layout"](docs/assets/2.png)
 !["Variable height layout"](docs/assets/3.png)

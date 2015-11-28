@@ -47,3 +47,9 @@ let myCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout:
 
 #### Four column
 <img src="docs/assets/4.jpg" width="550">
+
+### License
+
+The MIT License (MIT)
+
+Copyright (c) Giancarlo Daniele

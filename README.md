@@ -22,15 +22,15 @@ Compatible with iOS 9+ and the most recent Swift release (Swift 2.1).
 
 5. Customize your `MultipleColumnLayout` layout instance as follows before adding it to your `UICollectionView`
 
-```Swift
-let multiColumnLayout = MultipleColumnLayout()
-
-multiColumnLayout.cellPadding = 5
-multiColumnLayout.delegate = myDelegate // your UICollectionViewDataSource might be a good fit
-multiColumnLayout.numberOfColumns = 2
-
-let myCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: multiColumnLayout)
-```
+    ```Swift
+    let multiColumnLayout = MultipleColumnLayout()
+    
+    multiColumnLayout.cellPadding = 5
+    multiColumnLayout.delegate = myDelegate // your UICollectionViewDataSource might be a good fit
+    multiColumnLayout.numberOfColumns = 2
+    
+    let myCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: multiColumnLayout)
+    ```
 
 
 

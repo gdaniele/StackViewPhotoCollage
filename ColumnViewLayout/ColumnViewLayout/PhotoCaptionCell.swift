@@ -28,6 +28,7 @@ class PhotoCaptionCell: UICollectionViewCell {
 		view.distribution = UIStackViewDistribution.EqualSpacing
 		view.alignment = UIStackViewAlignment.Fill
 		view.layoutMarginsRelativeArrangement = true
+		view.translatesAutoresizingMaskIntoConstraints = false
 
 		return view
 	}()
@@ -66,8 +67,18 @@ class PhotoCaptionCell: UICollectionViewCell {
 		// Add views to contentView
 		self.addSubview(self.mainView)
 		
-		// Set mainViewContstraints
-		self.mainView.autoPinEdgesToSuperviewEdges()
+		// Constraint stackView to cell's edges
+		if let uSuperView = self.mainView.superview {
+			self.addConstraints(
+				[
+					NSLayoutConstraint(item: self.mainView, attribute: .Top, relatedBy: .Equal, toItem: uSuperView, attribute: .Top, multiplier: 1, constant: 0),
+					NSLayoutConstraint(item: self.mainView, attribute: .Bottom, relatedBy: .Equal, toItem: uSuperView, attribute: .Bottom, multiplier: 1, constant: 0),
+					NSLayoutConstraint(item: self.mainView, attribute: .Leading, relatedBy: .Equal, toItem: uSuperView, attribute: .Leading, multiplier: 1, constant: 0),
+					NSLayoutConstraint(item: self.mainView, attribute: .Trailing, relatedBy: .Equal, toItem: uSuperView, attribute: .Trailing, multiplier: 1, constant: 0)
+				]
+			)
+		}
+
 		if let uHeightConstraint = self.textHeightLayoutConstraint {
 			self.addConstraint(uHeightConstraint)
 		}

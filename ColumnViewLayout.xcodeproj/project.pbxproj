@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3DE9D041C090F48001DA6CD /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9CFC1C090F48001DA6CD /* ALView+PureLayout.m */; };
-		B3DE9D051C090F48001DA6CD /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9CFE1C090F48001DA6CD /* NSArray+PureLayout.m */; };
-		B3DE9D061C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DE9D001C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m */; };
 		B3E33C9F1B48731A00E2192C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E33C9E1B48731A00E2192C /* AppDelegate.swift */; };
 		B3E33CA61B48731A00E2192C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA51B48731A00E2192C /* Images.xcassets */; };
 		B3E33CA91B48731A00E2192C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E33CA71B48731A00E2192C /* LaunchScreen.xib */; };
@@ -32,16 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B3DE9CFB1C090F48001DA6CD /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
-		B3DE9CFC1C090F48001DA6CD /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
-		B3DE9CFD1C090F48001DA6CD /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
-		B3DE9CFE1C090F48001DA6CD /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
-		B3DE9CFF1C090F48001DA6CD /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
-		B3DE9D001C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
-		B3DE9D011C090F48001DA6CD /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
-		B3DE9D021C090F48001DA6CD /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
-		B3DE9D031C090F48001DA6CD /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
-		B3DE9D071C090FAA001DA6CD /* ColumnViewLayout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColumnViewLayout-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3E33C991B48731A00E2192C /* ColumnViewLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumnViewLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E33C9D1B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33C9E1B48731A00E2192C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,10 +38,10 @@
 		B3E33CB31B48731A00E2192C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E33CB41B48731A00E2192C /* ColumnViewLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnViewLayoutTests.swift; sourceTree = "<group>"; };
 		B3E33CC41B48745800E2192C /* ImageFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedViewController.swift; sourceTree = "<group>"; };
-		B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleColumnLayout.swift; sourceTree = "<group>"; };
+		B3E33CC71B48755100E2192C /* MultipleColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleColumnLayout.swift; path = ColumnViewLayout/MultipleColumnLayout.swift; sourceTree = "<group>"; };
 		B3E33CC91B487BE900E2192C /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B3E33CCE1B48809100E2192C /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptionCell.swift; sourceTree = "<group>"; };
+		B3E33CD11B48B0B200E2192C /* PhotoCaptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCaptionCell.swift; path = ColumnViewLayout/PhotoCaptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,37 +70,10 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		B3DE9CF91C090F29001DA6CD /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				B3DE9CFA1C090F48001DA6CD /* PureLayout */,
-			);
-			name = Vendor;
-			path = ColumnViewLayout;
-			sourceTree = "<group>";
-		};
-		B3DE9CFA1C090F48001DA6CD /* PureLayout */ = {
-			isa = PBXGroup;
-			children = (
-				B3DE9CFB1C090F48001DA6CD /* ALView+PureLayout.h */,
-				B3DE9CFC1C090F48001DA6CD /* ALView+PureLayout.m */,
-				B3DE9CFD1C090F48001DA6CD /* NSArray+PureLayout.h */,
-				B3DE9CFE1C090F48001DA6CD /* NSArray+PureLayout.m */,
-				B3DE9CFF1C090F48001DA6CD /* NSLayoutConstraint+PureLayout.h */,
-				B3DE9D001C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m */,
-				B3DE9D011C090F48001DA6CD /* PureLayout+Internal.h */,
-				B3DE9D021C090F48001DA6CD /* PureLayout.h */,
-				B3DE9D031C090F48001DA6CD /* PureLayoutDefines.h */,
-			);
-			name = PureLayout;
-			path = Vendor/PureLayout;
-			sourceTree = "<group>";
-		};
 		B3E33C901B48731A00E2192C = {
 			isa = PBXGroup;
 			children = (
 				B3E33C9B1B48731A00E2192C /* ColumnViewLayout */,
-				B3DE9CF91C090F29001DA6CD /* Vendor */,
 				B3E33CB11B48731A00E2192C /* ColumnViewLayoutTests */,
 				B3E33C9A1B48731A00E2192C /* Products */,
 			);
@@ -196,7 +156,6 @@
 			children = (
 				B3E33C9D1B48731A00E2192C /* Info.plist */,
 				B3E33C9E1B48731A00E2192C /* AppDelegate.swift */,
-				B3DE9D071C090FAA001DA6CD /* ColumnViewLayout-Bridging-Header.h */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -322,9 +281,6 @@
 				B3E33CCA1B487BE900E2192C /* Photo.swift in Sources */,
 				B3E33CD21B48B0B200E2192C /* PhotoCaptionCell.swift in Sources */,
 				B3E33CC81B48755100E2192C /* MultipleColumnLayout.swift in Sources */,
-				B3DE9D041C090F48001DA6CD /* ALView+PureLayout.m in Sources */,
-				B3DE9D051C090F48001DA6CD /* NSArray+PureLayout.m in Sources */,
-				B3DE9D061C090F48001DA6CD /* NSLayoutConstraint+PureLayout.m in Sources */,
 				B3E33CCF1B48809100E2192C /* UIView+Extensions.swift in Sources */,
 				B3E33CC51B48745800E2192C /* ImageFeedViewController.swift in Sources */,
 				B3E33C9F1B48731A00E2192C /* AppDelegate.swift in Sources */,
@@ -402,7 +358,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "ColumnViewLayout/ColumnViewLayout-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -441,7 +397,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "ColumnViewLayout/ColumnViewLayout-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

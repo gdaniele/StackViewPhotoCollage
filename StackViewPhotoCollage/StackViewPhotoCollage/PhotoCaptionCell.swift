@@ -10,6 +10,25 @@ import UIKit
 
 // Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
 class PhotoCaptionCell: UICollectionViewCell {
+	// MARK: Public
+	var image: UIImage? {
+		didSet {
+			if let uImage = image {
+				imageView.image = uImage
+			}
+		}
+	}
+	var title: String? {
+		didSet {
+			if let uTitle = title {
+				titleLabel.text = uTitle
+			}
+		}
+	}
+	
+	// MARK: Style
+	private let style: PhotoCaptionCellStyle
+	
 	// MARK:- Layout Concerns
 	private var textHeightLayoutConstraint: NSLayoutConstraint?
 	private var photoHeightLayoutConstraint: NSLayoutConstraint?
@@ -33,10 +52,9 @@ class PhotoCaptionCell: UICollectionViewCell {
 		
 		return view
 	}()
-	var titleFont: UIFont = UIFont(name: "Avenir", size: 15)! // set default font
 	private lazy var titleLabel: UILabel = {
 		let label = UILabel()
-		label.font = self.titleFont
+		label.font = self.style.titleFont
 		label.textAlignment = .Left
 		label.numberOfLines = 0
 		label.lineBreakMode = .ByWordWrapping
@@ -45,64 +63,19 @@ class PhotoCaptionCell: UICollectionViewCell {
 		return label
 	}()
 	
-	// MARK:- Public API
-	var image: UIImage? {
-		didSet {
-			if let uImage = image {
-				imageView.image = uImage
-			}
-		}
-	}
-	var title: String? {
-		didSet {
-			if let uTitle = title {
-				titleLabel.text = uTitle
-			}
-		}
-	}
-	
 	override init(frame: CGRect) {
+		self.style = BeigeRoundedPhotoCaptionCellStyle()
+		
 		super.init(frame: CGRectZero)
 		
 		self.photoHeightLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 200)
 		self.textHeightLayoutConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 30)
+		
+		setUpUI()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-	
-	override func layoutSubviews() {
-		self.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.2)
-		
-		// Add views to contentView
-		self.addSubview(self.mainView)
-		
-		// Constraint stackView to cell's edges
-		if let uSuperView = self.mainView.superview {
-			self.addConstraints(
-				[
-					NSLayoutConstraint(item: self.mainView, attribute: .Top, relatedBy: .Equal, toItem: uSuperView, attribute: .Top, multiplier: 1, constant: 0),
-					NSLayoutConstraint(item: self.mainView, attribute: .Bottom, relatedBy: .Equal, toItem: uSuperView, attribute: .Bottom, multiplier: 1, constant: 0),
-					NSLayoutConstraint(item: self.mainView, attribute: .Leading, relatedBy: .Equal, toItem: uSuperView, attribute: .Leading, multiplier: 1, constant: 0),
-					NSLayoutConstraint(item: self.mainView, attribute: .Trailing, relatedBy: .Equal, toItem: uSuperView, attribute: .Trailing, multiplier: 1, constant: 0)
-				]
-			)
-		}
-		
-		// Add default padding around title label
-		if let uSuperView = self.titleLabel.superview {
-			self.addConstraints(
-				[
-					NSLayoutConstraint(item: self.titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: uSuperView, attribute: .Leading, multiplier: 1, constant: 5),
-					NSLayoutConstraint(item: self.titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: uSuperView, attribute: .Trailing, multiplier: 1, constant: -5)
-				]
-			)
-		}
-		
-		if let uHeightConstraint = self.textHeightLayoutConstraint {
-			self.addConstraint(uHeightConstraint)
-		}
 	}
 	
 	override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
@@ -113,4 +86,54 @@ class PhotoCaptionCell: UICollectionViewCell {
 			textHeightLayoutConstraint?.constant = attributes.annotationHeight
 		}
 	}
+	
+	// MARK: Private view
+	
+	private func setUpUI() {
+		backgroundColor = style.backgroundColor
+		cornerRadius = style.cornerRadius
+		
+		// Add views to contentView
+		addSubview(mainView)
+		
+		// Constraint stackView to cell's edges
+		if let uSuperView = mainView.superview {
+			addConstraints(
+				[
+					NSLayoutConstraint(item: mainView, attribute: .Top, relatedBy: .Equal, toItem: uSuperView, attribute: .Top, multiplier: 1, constant: 0),
+					NSLayoutConstraint(item: mainView, attribute: .Bottom, relatedBy: .Equal, toItem: uSuperView, attribute: .Bottom, multiplier: 1, constant: 0),
+					NSLayoutConstraint(item: mainView, attribute: .Leading, relatedBy: .Equal, toItem: uSuperView, attribute: .Leading, multiplier: 1, constant: 0),
+					NSLayoutConstraint(item: mainView, attribute: .Trailing, relatedBy: .Equal, toItem: uSuperView, attribute: .Trailing, multiplier: 1, constant: 0)
+				]
+			)
+		}
+		
+		// Add default padding around title label
+		if let uSuperView = titleLabel.superview {
+			addConstraints(
+				[
+					NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: uSuperView, attribute: .Leading, multiplier: 1, constant: 5),
+					NSLayoutConstraint(item: titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: uSuperView, attribute: .Trailing, multiplier: 1, constant: -5)
+				]
+			)
+		}
+		
+		if let uHeightConstraint = textHeightLayoutConstraint {
+			addConstraint(uHeightConstraint)
+		}
+	}
+}
+
+// MARK: Style
+
+protocol PhotoCaptionCellStyle {
+	var backgroundColor: UIColor { get }
+	var cornerRadius: CGFloat { get }
+	var titleFont: UIFont { get }
+}
+
+struct BeigeRoundedPhotoCaptionCellStyle: PhotoCaptionCellStyle {
+	let backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.2)
+	let cornerRadius: CGFloat = 5
+	let titleFont = UIFont(name: "Avenir", size: 15)!
 }

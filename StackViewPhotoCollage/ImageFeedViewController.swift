@@ -70,8 +70,6 @@ extension ImageFeedViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! PhotoCaptionCell
         cell.image = photos[indexPath.item].image
 		cell.title = photos[indexPath.item].caption
-        cell.cornerRadius = 5
-		cell.titleFont = self.titleFont
 		
         return cell
     }

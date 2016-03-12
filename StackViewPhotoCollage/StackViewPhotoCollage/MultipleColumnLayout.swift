@@ -39,12 +39,12 @@ class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
 }
 
 class MultipleColumnLayout: UICollectionViewLayout {
-	// MARK:- Public API
+	// MARK: Public API
     weak var delegate: MultipleColumnLayoutDelegate!
 	var numberOfColumns = 1
 	var cellPadding: CGFloat = 0
 	
-	// MARK:- Layout Concerns
+	// MARK: Layout Concerns
     private var cache = [MultipleColumnLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {

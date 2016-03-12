@@ -11,15 +11,15 @@ import AVFoundation
 
 // Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
 class ImageFeedViewController: UICollectionViewController {
-	// MARK:- Layout Concerns
-    private let kCollectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
-    private let kCollectionViewSideInset: CGFloat = 5
-    private let kCollectionViewBottomInset: CGFloat = 10
-    private var numberOfColumns: Int = 1
+	// MARK: Layout Concerns
+	private let cellStyle = BeigeRoundedPhotoCaptionCellStyle()
 	private let reuseIdentifier = "PhotoCaptionCell"
-	private let titleFont: UIFont = UIFont(name: "Avenir", size: 15)!
+    private let collectionViewBottomInset: CGFloat = 10
+    private let collectionViewSideInset: CGFloat = 5
+    private let collectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
+    private var numberOfColumns: Int = 2
 	
-	// MARK:- Data
+	// MARK: Data
     private let photos = Photo.allPhotos()
 	
 	override init(collectionViewLayout layout: UICollectionViewLayout) {
@@ -33,10 +33,12 @@ class ImageFeedViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		setUI()
+		setUpUI()
     }
 	
-	private func setUI() {
+	// MARK: Private
+	
+	private func setUpUI() {
 		// Set background
 		if let patternImage = UIImage(named: "pattern") {
 			view.backgroundColor = UIColor(patternImage: patternImage)
@@ -47,10 +49,10 @@ class ImageFeedViewController: UICollectionViewController {
 		
 		// Set generic styling
 		collectionView?.backgroundColor = UIColor.clearColor()
-		collectionView?.contentInset = UIEdgeInsetsMake(kCollectionViewTopInset, kCollectionViewSideInset, kCollectionViewBottomInset, kCollectionViewSideInset)
+		collectionView?.contentInset = UIEdgeInsetsMake(collectionViewTopInset, collectionViewSideInset, collectionViewBottomInset, collectionViewSideInset)
 		let layout = collectionViewLayout as! MultipleColumnLayout
 		
-		layout.cellPadding = kCollectionViewSideInset
+		layout.cellPadding = collectionViewSideInset
 		layout.delegate = self
 		layout.numberOfColumns = numberOfColumns
 		
@@ -59,21 +61,26 @@ class ImageFeedViewController: UICollectionViewController {
 	}
 }
 
+// MARK: UICollectionViewDelegate
+
 extension ImageFeedViewController {
-	// MARK:- UICollectionViewDelegate
 	
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
 	
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as! PhotoCaptionCell
-        cell.image = photos[indexPath.item].image
-		cell.title = photos[indexPath.item].caption
+		guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as? PhotoCaptionCell else {
+			fatalError("Could not dequeue cell")
+		}
+		
+		cell.setUpWithImage(photos[indexPath.item].image, title: photos[indexPath.item].caption, style: cellStyle)
 		
         return cell
     }
 }
+
+// MARK: MultipleColumnLayoutDelegate
 
 extension ImageFeedViewController: MultipleColumnLayoutDelegate {
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
@@ -84,7 +91,7 @@ extension ImageFeedViewController: MultipleColumnLayoutDelegate {
     
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
 		
-		let rect = NSString(string: photos[indexPath.item].caption).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: self.titleFont], context: nil)
-		return ceil(rect.height)
+		let rect = NSString(string: photos[indexPath.item].caption).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: cellStyle.titleFont], context: nil)
+		return ceil(rect.height + cellStyle.titleInsets.top + cellStyle.titleInsets.bottom)
     }
 }

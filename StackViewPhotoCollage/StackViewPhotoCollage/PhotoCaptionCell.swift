@@ -116,11 +116,15 @@ class PhotoCaptionCell: UICollectionViewCell {
 		backgroundColor = style.backgroundColor
 		cornerRadius = style.cornerRadius
 		titleLabel.font = style.titleFont
+		
+		// Update constraint constants
+		titleLabelToCaptionViewConstraints[0].constant = style.titleInsets.top
+		titleLabelToCaptionViewConstraints[1].constant = -style.titleInsets.bottom
+		titleLabelToCaptionViewConstraints[2].constant = style.titleInsets.left
+		titleLabelToCaptionViewConstraints[3].constant = -style.titleInsets.right
 	}
 	
 	private func setUpView(style: PhotoCaptionCellStyle) {
-		applyStyle(style)
-		
 		// Add views to contentView
 		addSubview(mainView)
 		
@@ -144,6 +148,11 @@ class PhotoCaptionCell: UICollectionViewCell {
 		if let textHeightLayoutConstraint = textHeightLayoutConstraint {
 			addConstraint(textHeightLayoutConstraint)
 		}
+		
+		// Apply style
+		applyStyle(style)
+		
+		didSetUpView = true
 	}
 }
 

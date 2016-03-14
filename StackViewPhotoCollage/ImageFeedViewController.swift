@@ -22,8 +22,10 @@ class ImageFeedViewController: UICollectionViewController {
 	// MARK: Data
     private let photos = Photo.allPhotos()
 	
-	override init(collectionViewLayout layout: UICollectionViewLayout) {
-		super.init(collectionViewLayout: layout)		
+	required init() {
+		let layout = MultipleColumnLayout()
+		super.init(collectionViewLayout: layout)
+		layout.delegate = self
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -35,6 +37,25 @@ class ImageFeedViewController: UICollectionViewController {
 		
 		setUpUI()
     }
+	
+	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+		guard let collectionView = collectionView else {
+			fatalError("No collection view")
+		}
+		
+		// Check to see if size changed
+		guard let layout = collectionView.collectionViewLayout as? MultipleColumnLayout where layout.screenWidth != size.width else {
+			return
+		}
+		
+		// Create new layout, which will take into account the new screen size
+		// and update cells
+		let newLayout = MultipleColumnLayout(cellPadding: collectionViewSideInset, numberOfColumns: numberOfColumns, screenWidth: size.width)
+		newLayout.delegate = self
+
+		collectionView.collectionViewLayout = newLayout
+	}
 	
 	// MARK: Private
 	
@@ -50,10 +71,13 @@ class ImageFeedViewController: UICollectionViewController {
 		// Set generic styling
 		collectionView?.backgroundColor = UIColor.clearColor()
 		collectionView?.contentInset = UIEdgeInsetsMake(collectionViewTopInset, collectionViewSideInset, collectionViewBottomInset, collectionViewSideInset)
-		let layout = collectionViewLayout as! MultipleColumnLayout
+		
+		// Set layout
+		guard let layout = collectionViewLayout as? MultipleColumnLayout else {
+			return
+		}
 		
 		layout.cellPadding = collectionViewSideInset
-		layout.delegate = self
 		layout.numberOfColumns = numberOfColumns
 		
 		// Register cell identifier
@@ -73,8 +97,7 @@ extension ImageFeedViewController {
 		guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as? PhotoCaptionCell else {
 			fatalError("Could not dequeue cell")
 		}
-		
-		cell.setUpWithImage(photos[indexPath.item].image, title: photos[indexPath.item].caption, style: cellStyle)
+		cell.setUpWithImage(photos[indexPath.item].image, title: photos[indexPath.item].caption, style: BeigeRoundedPhotoCaptionCellStyle())
 		
         return cell
     }

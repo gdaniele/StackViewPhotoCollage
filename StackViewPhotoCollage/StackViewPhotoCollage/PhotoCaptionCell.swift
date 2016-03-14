@@ -10,12 +10,8 @@ import UIKit
 
 // Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
 class PhotoCaptionCell: UICollectionViewCell {
-	// MARK: Style
-	private var style: PhotoCaptionCellStyle! = nil
-	
 	// MARK: Layout Concerns
-	private var photoHeightLayoutConstraint: NSLayoutConstraint?
-	private var textHeightLayoutConstraint: NSLayoutConstraint?
+	private var didSetUpView: Bool = false
 	private var calculatedPhotoHeight: CGFloat? {
 		didSet {
 			photoHeightLayoutConstraint?.constant = calculatedPhotoHeight!
@@ -26,6 +22,11 @@ class PhotoCaptionCell: UICollectionViewCell {
 			textHeightLayoutConstraint?.constant = calculatedTextHeight!
 		}
 	}
+	
+	// MARK: Constraints
+	private var photoHeightLayoutConstraint: NSLayoutConstraint?
+	private var textHeightLayoutConstraint: NSLayoutConstraint?
+	private var titleLabelToCaptionViewConstraints: [NSLayoutConstraint]! = nil
 
 	// MARK: Lazy UI
 	private lazy var captionView: UIView = {
@@ -55,7 +56,7 @@ class PhotoCaptionCell: UICollectionViewCell {
 	}()
 	private lazy var titleLabel: UILabel = {
 		let label = UILabel()
-		label.font = self.style.titleFont
+		label.font = UIFont.systemFontOfSize(14)
 		label.lineBreakMode = .ByWordWrapping
 		label.numberOfLines = 0
 		label.textAlignment = .Left
@@ -66,14 +67,32 @@ class PhotoCaptionCell: UICollectionViewCell {
 	
 	// MARK: Public init
 	
-	// Required initializer
-	func setUpWithImage(image: UIImage, title: String, style: PhotoCaptionCellStyle) {
-		self.style = style
+	override init(frame: CGRect) {
+		super.init(frame: CGRectZero)
+		
+		self.titleLabelToCaptionViewConstraints = [
+			NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: captionView, attribute: .Leading, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: captionView, attribute: .Trailing, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: titleLabel, attribute: .Top, relatedBy: .Equal, toItem: captionView, attribute: .Top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: titleLabel, attribute: .Bottom, relatedBy: .Equal, toItem: captionView, attribute: .Bottom, multiplier: 1, constant: 0)
+		]
+	}
 
+	required init?(coder aDecoder: NSCoder) {
+	    fatalError("init(coder:) has not been implemented")
+	}
+	
+	func setUpWithImage(image: UIImage, title: String, style: PhotoCaptionCellStyle) {
 		imageView.image = image
 		titleLabel.text = title
 		
-		setUpUI()
+		// Keep track of set up status, because we're reusing cells
+		guard didSetUpView else {
+			setUpView(style)
+			return
+		}
+		
+		applyStyle(style)
 	}
 	
 	override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
@@ -83,15 +102,24 @@ class PhotoCaptionCell: UICollectionViewCell {
 			fatalError("Unexpected attributes class")
 		}
 		
+		guard [attributes.photoHeight, attributes.annotationHeight, attributes.cellWidth].filter({ $0 != 0.0 }).isEmpty else {
+			return
+		}
+
 		calculatedPhotoHeight = attributes.photoHeight
 		calculatedTextHeight = attributes.annotationHeight
 	}
 	
 	// MARK: Private view
 	
-	private func setUpUI() {
+	private func applyStyle(style: PhotoCaptionCellStyle) {
 		backgroundColor = style.backgroundColor
 		cornerRadius = style.cornerRadius
+		titleLabel.font = style.titleFont
+	}
+	
+	private func setUpView(style: PhotoCaptionCellStyle) {
+		applyStyle(style)
 		
 		// Add views to contentView
 		addSubview(mainView)
@@ -109,28 +137,12 @@ class PhotoCaptionCell: UICollectionViewCell {
 		}
 		
 		// Add default padding around title label
-		if let uSuperView = titleLabel.superview {
-			addConstraints(
-				[
-					NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: uSuperView, attribute: .Leading, multiplier: 1, constant: style.titleInsets.left),
-					NSLayoutConstraint(item: titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: uSuperView, attribute: .Trailing, multiplier: 1, constant: -style.titleInsets.right),
-					NSLayoutConstraint(item: titleLabel, attribute: .Top, relatedBy: .Equal, toItem: uSuperView, attribute: .Top, multiplier: 1, constant: style.titleInsets.top),
-					NSLayoutConstraint(item: titleLabel, attribute: .Bottom, relatedBy: .Equal, toItem: uSuperView, attribute: .Bottom, multiplier: 1, constant: -style.titleInsets.bottom)
-				]
-			)
-		}
-		
-		// Set dynamic constraints
-		guard photoHeightLayoutConstraint == nil && textHeightLayoutConstraint == nil else {
-			print("Dynamic constraints are already set. Move on")
-			return
-		}
+		addConstraints(titleLabelToCaptionViewConstraints)
 
 		/// Sets text height constraint
 		textHeightLayoutConstraint = NSLayoutConstraint(item: captionView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: calculatedTextHeight ?? 30)
 		if let textHeightLayoutConstraint = textHeightLayoutConstraint {
 			addConstraint(textHeightLayoutConstraint)
-			print("Text - Set to \(calculatedTextHeight ?? 30)")
 		}
 	}
 }

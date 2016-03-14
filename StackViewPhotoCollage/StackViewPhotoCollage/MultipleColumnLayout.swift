@@ -17,12 +17,14 @@ protocol MultipleColumnLayoutDelegate: class {
 class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
 	var annotationHeight: CGFloat = 0
     var photoHeight: CGFloat = 0
+	var cellWidth: CGFloat = 0
 	
     override func copyWithZone(zone: NSZone) -> AnyObject {
 		guard let copy = super.copyWithZone(zone) as? MultipleColumnLayoutAttributes else {
 			fatalError()
 		}
 		copy.annotationHeight = annotationHeight
+		copy.cellWidth = cellWidth
         copy.photoHeight = photoHeight
         return copy
     }
@@ -31,7 +33,7 @@ class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
 		guard let attributes = object as? MultipleColumnLayoutAttributes else {
 			return false
 		}
-		if attributes.photoHeight == photoHeight && attributes.annotationHeight == annotationHeight {
+		if attributes.photoHeight == photoHeight && attributes.annotationHeight == annotationHeight && attributes.cellWidth == cellWidth {
 			return super.isEqual(object)
 		}
 		return false
@@ -47,16 +49,25 @@ class MultipleColumnLayout: UICollectionViewLayout {
 	// MARK: Layout Concerns
     private var cache = [MultipleColumnLayoutAttributes]()
     private var contentHeight: CGFloat = 0
+	var screenWidth: CGFloat?
     private var width: CGFloat {
         get {
 			guard let collectionView = collectionView else {
 				fatalError()
 			}
             let insets = collectionView.contentInset
-            return CGRectGetWidth(collectionView.bounds) - (insets.left + insets.right)
+			let width = screenWidth ?? CGRectGetWidth(collectionView.bounds)
+            return width - (insets.left + insets.right)
         }
     }
-    
+	
+	convenience init(cellPadding: CGFloat, numberOfColumns: Int, screenWidth: CGFloat) {
+		self.init()
+		self.cellPadding = cellPadding
+		self.numberOfColumns = numberOfColumns
+		self.screenWidth = screenWidth
+	}
+
     override class func layoutAttributesClass() -> AnyClass {
         return MultipleColumnLayoutAttributes.self
     }
@@ -115,6 +126,7 @@ class MultipleColumnLayout: UICollectionViewLayout {
                 attributes.frame = frame
                 attributes.photoHeight = photoHeight
 				attributes.annotationHeight = annotationHeight
+				attributes.cellWidth = width
 				
                 cache.append(attributes)
 				

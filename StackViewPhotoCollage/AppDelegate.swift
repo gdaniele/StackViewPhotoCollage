@@ -11,18 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
-  
+
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
+
     if self.window == nil {
       self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     }
-    
+
     if let uWindow = self.window {
       uWindow.rootViewController = UINavigationController(rootViewController: ImageFeedViewController())
       uWindow.makeKeyAndVisible()
     }
-    
+
     return true
   }
 }

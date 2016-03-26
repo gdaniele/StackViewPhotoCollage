@@ -17,7 +17,7 @@ protocol MultipleColumnLayoutDelegate: class {
 class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
   var annotationHeight: CGFloat = 0
   var photoHeight: CGFloat = 0
-  
+
   override func copyWithZone(zone: NSZone) -> AnyObject {
     guard let copy = super.copyWithZone(zone) as? MultipleColumnLayoutAttributes else {
       fatalError()
@@ -26,7 +26,7 @@ class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
     copy.photoHeight = photoHeight
     return copy
   }
-  
+
   override func isEqual(object: AnyObject?) -> Bool {
     guard let attributes = object as? MultipleColumnLayoutAttributes else {
       return false
@@ -43,7 +43,7 @@ class MultipleColumnLayout: UICollectionViewLayout {
   weak var delegate: MultipleColumnLayoutDelegate!
   var numberOfColumns = 1
   var cellPadding: CGFloat = 0
-  
+
   // MARK: Layout Concerns
   private var cache = [MultipleColumnLayoutAttributes]()
   private var contentHeight: CGFloat = 0
@@ -57,27 +57,27 @@ class MultipleColumnLayout: UICollectionViewLayout {
       return width - (insets.left + insets.right)
     }
   }
-  
+
   convenience init(cellPadding: CGFloat, numberOfColumns: Int) {
     self.init()
     self.cellPadding = cellPadding
     self.numberOfColumns = numberOfColumns
   }
-  
+
   // MARK: Public API
-  
+
   func clearCache() {
     cache.removeAll()
   }
-  
+
   override class func layoutAttributesClass() -> AnyClass {
     return MultipleColumnLayoutAttributes.self
   }
-  
+
   override func collectionViewContentSize() -> CGSize {
     return CGSize(width: width, height: contentHeight)
   }
-  
+
   override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     var layoutAttributes = [UICollectionViewLayoutAttributes]()
     for attributes in cache {
@@ -87,53 +87,63 @@ class MultipleColumnLayout: UICollectionViewLayout {
     }
     return layoutAttributes
   }
-  
+
   override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
     let attributes = MultipleColumnLayoutAttributes(forCellWithIndexPath: indexPath)
     let frame = CGRectInset(CGRect(x: -231, y: -231, width: 1, height: 1), cellPadding, cellPadding)
     attributes.frame = frame
     return attributes
   }
-  
+
   override func prepareLayout() {
     if cache.isEmpty {
       guard let collectionView = collectionView else {
         return
       }
       let columnWidth = width / CGFloat(numberOfColumns)
-      
+
       // Create arrays to hold x and y offsets of each
       var xOffsets = [CGFloat]()
       for column in 0..<numberOfColumns {
         xOffsets.append((CGFloat(column) * columnWidth))
       }
-      
+
       var yOffsets = [CGFloat](count: numberOfColumns, repeatedValue: 0)
-      
+
       var column = 0
       for item in 0..<collectionView.numberOfItemsInSection(0) {
         let indexPath = NSIndexPath(forItem: item, inSection: 0)
         let width = columnWidth - (cellPadding * 2)
-        
+
         // Calculate height
-        let photoHeight = delegate.collectionView(collectionView, heightForPhotoAtIndexPath: indexPath, withWidth: width)
-        let annotationHeight = delegate.collectionView(collectionView, heightForAnnotationAtIndexPath: indexPath, withWidth: width)
+        let photoHeight = delegate.collectionView(collectionView,
+                                                  heightForPhotoAtIndexPath: indexPath,
+                                                  withWidth: width)
+        let annotationHeight = delegate.collectionView(collectionView,
+                                                       heightForAnnotationAtIndexPath: indexPath,
+                                                       withWidth: width)
         let height = cellPadding + photoHeight + annotationHeight + cellPadding
-        
-        let frame = CGRectInset(CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height), cellPadding, cellPadding)
-        
+
+        let frame = CGRectInset(
+          CGRect(x: xOffsets[column],
+            y: yOffsets[column],
+            width: columnWidth,
+            height: height),
+          cellPadding,
+          cellPadding)
+
         let attributes = MultipleColumnLayoutAttributes(forCellWithIndexPath: indexPath)
         attributes.frame = frame
         attributes.photoHeight = photoHeight
         attributes.annotationHeight = annotationHeight
-        
+
         cache.append(attributes)
-        
+
         contentHeight = max(contentHeight, CGRectGetMaxY(frame))
         yOffsets[column] = yOffsets[column] + height
-        column = column >= (numberOfColumns - 1) ? 0 : ++column
+        column = column >= (numberOfColumns - 1) ? 0 : column + 1
       }
     }
   }
-  
+
 }

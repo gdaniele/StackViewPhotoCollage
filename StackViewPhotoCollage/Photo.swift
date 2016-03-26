@@ -25,8 +25,7 @@ let comments = [
                 "qui officia deserunt mollit anim id est laborum"
 ]
 
-// Inspired by:
-// http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
+// Inspired by: RayWenderlich.com pinterest-basic-layout
 class Photo: NSObject {
   var caption: String
   var image: UIImage

@@ -9,14 +9,15 @@
 import UIKit
 import AVFoundation
 
-// Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
+// Inspired by: RayWenderlich.com pinterest-basic-layout
 class ImageFeedViewController: UICollectionViewController {
   // MARK: Layout Concerns
   private let cellStyle = BeigeRoundedPhotoCaptionCellStyle()
   private let reuseIdentifier = "PhotoCaptionCell"
   private let collectionViewBottomInset: CGFloat = 10
   private let collectionViewSideInset: CGFloat = 5
-  private let collectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
+  private let collectionViewTopInset: CGFloat =
+    UIApplication.sharedApplication().statusBarFrame.height
   private var numberOfColumns: Int = 1
 
   // MARK: Data
@@ -38,15 +39,17 @@ class ImageFeedViewController: UICollectionViewController {
     setUpUI()
   }
 
-  override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+  override func viewWillTransitionToSize(
+    size: CGSize,
+    withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
     super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
 
-    guard let collectionView = collectionView, let layout = collectionView.collectionViewLayout as? MultipleColumnLayout else {
+    guard let collectionView = collectionView,
+      let layout = collectionView.collectionViewLayout as? MultipleColumnLayout else {
       return
     }
     layout.clearCache()
     layout.invalidateLayout()
-    print("are they equal? \(layout.collectionViewContentSize().height == collectionView.contentSize.height)")
   }
 
   // MARK: Private
@@ -62,7 +65,11 @@ class ImageFeedViewController: UICollectionViewController {
 
     // Set generic styling
     collectionView?.backgroundColor = UIColor.clearColor()
-    collectionView?.contentInset = UIEdgeInsetsMake(collectionViewTopInset, collectionViewSideInset, collectionViewBottomInset, collectionViewSideInset)
+    collectionView?.contentInset = UIEdgeInsetsMake(
+      collectionViewTopInset,
+      collectionViewSideInset,
+      collectionViewBottomInset,
+      collectionViewSideInset)
 
     // Set layout
     guard let layout = collectionViewLayout as? MultipleColumnLayout else {
@@ -73,7 +80,8 @@ class ImageFeedViewController: UICollectionViewController {
     layout.numberOfColumns = numberOfColumns
 
     // Register cell identifier
-    self.collectionView?.registerClass(PhotoCaptionCell.self, forCellWithReuseIdentifier: self.reuseIdentifier)
+    self.collectionView?.registerClass(PhotoCaptionCell.self,
+                                       forCellWithReuseIdentifier: self.reuseIdentifier)
   }
 }
 
@@ -81,12 +89,17 @@ class ImageFeedViewController: UICollectionViewController {
 
 extension ImageFeedViewController {
 
-  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  override func collectionView(collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
     return photos.count
   }
 
-  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as? PhotoCaptionCell
+  override func collectionView(collectionView: UICollectionView,
+                               cellForItemAtIndexPath indexPath: NSIndexPath
+    ) -> UICollectionViewCell {
+    guard let cell = collectionView
+      .dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier,
+                                              forIndexPath: indexPath) as? PhotoCaptionCell
       else {
         fatalError("Could not dequeue cell")
     }
@@ -102,13 +115,17 @@ extension ImageFeedViewController {
 
 extension ImageFeedViewController: MultipleColumnLayoutDelegate {
 
-  func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+  func collectionView(collectionView: UICollectionView,
+                      heightForPhotoAtIndexPath indexPath: NSIndexPath,
+                                                withWidth width: CGFloat) -> CGFloat {
     let photo = photos[indexPath.item]
     let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
     return AVMakeRectWithAspectRatioInsideRect(photo.image.size, boundingRect).height
   }
 
-  func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+  func collectionView(collectionView: UICollectionView,
+                      heightForAnnotationAtIndexPath indexPath: NSIndexPath,
+                                                     withWidth width: CGFloat) -> CGFloat {
 
     let rect = NSString(string: photos[indexPath.item].caption)
       .boundingRectWithSize(

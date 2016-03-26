@@ -8,7 +8,6 @@
 
 import UIKit
 
-// Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
 class PhotoCaptionCell: UICollectionViewCell {
   // MARK: Layout Concerns
   private var didSetUpView: Bool = false
@@ -63,20 +62,75 @@ class PhotoCaptionCell: UICollectionViewCell {
   // MARK: Public init
 
   override init(frame: CGRect) {
-    super.init(frame: CGRectZero)
+    super.init(frame: CGRect.zero)
 
     self.stackViewConstraints = [
-      NSLayoutConstraint(item: mainView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0),
-      NSLayoutConstraint(item: mainView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0),
-      NSLayoutConstraint(item: mainView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 1, constant: 0),
-      NSLayoutConstraint(item: mainView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1, constant: 0)
+      NSLayoutConstraint(
+        item: mainView,
+        attribute: .CenterX,
+        relatedBy: .Equal,
+        toItem: self,
+        attribute: .CenterX,
+        multiplier: 1,
+        constant: 0),
+      NSLayoutConstraint(
+        item: mainView,
+        attribute: .CenterY,
+        relatedBy: .Equal,
+        toItem: self,
+        attribute: .CenterY,
+        multiplier: 1,
+        constant: 0),
+      NSLayoutConstraint(
+        item: mainView,
+        attribute: .Width,
+        relatedBy: .Equal,
+        toItem: self,
+        attribute: .Width,
+        multiplier: 1,
+        constant: 0),
+      NSLayoutConstraint(
+        item: mainView,
+        attribute: .Height,
+        relatedBy: .Equal,
+        toItem: self,
+        attribute: .Height,
+        multiplier: 1,
+        constant: 0)
     ]
 
     self.titleLabelToCaptionViewConstraints = [
-      NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: captionView, attribute: .Leading, multiplier: 1, constant: 0),
-      NSLayoutConstraint(item: titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: captionView, attribute: .Trailing, multiplier: 1, constant: 0),
-      NSLayoutConstraint(item: titleLabel, attribute: .Top, relatedBy: .Equal, toItem: captionView, attribute: .Top, multiplier: 1, constant: 0),
-      NSLayoutConstraint(item: titleLabel, attribute: .Bottom, relatedBy: .Equal, toItem: captionView, attribute: .Bottom, multiplier: 1, constant: 0)
+      NSLayoutConstraint(
+        item: titleLabel,
+        attribute: .Leading,
+        relatedBy: .Equal,
+        toItem: captionView,
+        attribute: .Leading,
+        multiplier: 1,
+        constant: 0),
+      NSLayoutConstraint(
+        item: titleLabel,
+        attribute: .Trailing,
+        relatedBy: .Equal,
+        toItem: captionView,
+        attribute: .Trailing,
+        multiplier: 1,
+        constant: 0),
+      NSLayoutConstraint(
+        item: titleLabel,
+        attribute: .Top,
+        relatedBy: .Equal,
+        toItem: captionView,
+        attribute: .Top,
+        multiplier: 1,
+        constant: 0),
+      NSLayoutConstraint(item: titleLabel,
+        attribute: .Bottom,
+        relatedBy: .Equal,
+        toItem: captionView,
+        attribute: .Bottom,
+        multiplier: 1,
+        constant: 0)
     ]
   }
 
@@ -107,9 +161,6 @@ class PhotoCaptionCell: UICollectionViewCell {
       fatalError("Unexpected attributes class")
     }
     calculatedTextHeight = attributes.annotationHeight
-
-    print("\n\nME: \(self.hash)")
-    print("frame: \(self.frame)\n\n")
 
     if didSetUpView {
       removeConstraints(stackViewConstraints)

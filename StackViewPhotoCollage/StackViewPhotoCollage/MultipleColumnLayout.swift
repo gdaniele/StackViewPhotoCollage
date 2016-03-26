@@ -8,10 +8,14 @@
 
 import UIKit
 
-// Inspired by http://www.raywenderlich.com/99146/video-tutorial-custom-collection-view-layouts-part-1-pinterest-basic-layout
+// Inspired by: RayWenderlich.com pinterest-basic-layout
 protocol MultipleColumnLayoutDelegate: class {
-  func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
-  func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
+  func collectionView(collectionView: UICollectionView,
+                      heightForPhotoAtIndexPath indexPath: NSIndexPath,
+                                                withWidth width: CGFloat) -> CGFloat
+  func collectionView(collectionView: UICollectionView,
+                      heightForAnnotationAtIndexPath indexPath: NSIndexPath,
+                                                     withWidth width: CGFloat) -> CGFloat
 }
 
 class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
@@ -78,7 +82,8 @@ class MultipleColumnLayout: UICollectionViewLayout {
     return CGSize(width: width, height: contentHeight)
   }
 
-  override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+  override func layoutAttributesForElementsInRect(rect: CGRect)
+    -> [UICollectionViewLayoutAttributes]? {
     var layoutAttributes = [UICollectionViewLayoutAttributes]()
     for attributes in cache {
       if CGRectIntersectsRect(attributes.frame, rect) {
@@ -88,7 +93,8 @@ class MultipleColumnLayout: UICollectionViewLayout {
     return layoutAttributes
   }
 
-  override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+  override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath)
+    -> UICollectionViewLayoutAttributes? {
     let attributes = MultipleColumnLayoutAttributes(forCellWithIndexPath: indexPath)
     let frame = CGRectInset(CGRect(x: -231, y: -231, width: 1, height: 1), cellPadding, cellPadding)
     attributes.frame = frame

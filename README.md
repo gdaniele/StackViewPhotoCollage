@@ -39,14 +39,18 @@ Compatible with iOS 9+ and the most recent Swift release (Swift 2.1).
 #### One column
 <img src="docs/assets/1.jpg" width="550">
 
-#### Two column
+#### Two columns
 <img src="docs/assets/2.jpg" width="550">
 
 #### Three columns
 <img src="docs/assets/3.jpg" width="550">
 
-#### Four column
+#### Four columns
 <img src="docs/assets/4.jpg" width="550">
+
+### Credits
+
+Thank you Ray Wenderlich for the custom UICollectionView video tutorials, which were an inspiration for this project.
 
 ### License
 

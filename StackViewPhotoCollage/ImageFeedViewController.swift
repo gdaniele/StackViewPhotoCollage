@@ -17,7 +17,7 @@ class ImageFeedViewController: UICollectionViewController {
     private let collectionViewBottomInset: CGFloat = 10
     private let collectionViewSideInset: CGFloat = 5
     private let collectionViewTopInset: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
-    private var numberOfColumns: Int = 2
+    private var numberOfColumns: Int = 1
 	
 	// MARK: Data
     private let photos = Photo.allPhotos()
@@ -48,13 +48,8 @@ class ImageFeedViewController: UICollectionViewController {
 		guard let layout = collectionView.collectionViewLayout as? MultipleColumnLayout where layout.screenWidth != size.width else {
 			return
 		}
-		
-		// Create new layout, which will take into account the new screen size
-		// and update cells
-		let newLayout = MultipleColumnLayout(cellPadding: collectionViewSideInset, numberOfColumns: numberOfColumns, screenWidth: size.width)
-		newLayout.delegate = self
-
-		collectionView.collectionViewLayout = newLayout
+		layout.clearCache()
+		layout.invalidateLayout()
 	}
 	
 	// MARK: Private

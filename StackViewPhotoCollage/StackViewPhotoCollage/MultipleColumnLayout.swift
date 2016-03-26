@@ -17,14 +17,12 @@ protocol MultipleColumnLayoutDelegate: class {
 class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
 	var annotationHeight: CGFloat = 0
     var photoHeight: CGFloat = 0
-	var cellWidth: CGFloat = 0
 	
     override func copyWithZone(zone: NSZone) -> AnyObject {
 		guard let copy = super.copyWithZone(zone) as? MultipleColumnLayoutAttributes else {
 			fatalError()
 		}
 		copy.annotationHeight = annotationHeight
-		copy.cellWidth = cellWidth
         copy.photoHeight = photoHeight
         return copy
     }
@@ -33,7 +31,7 @@ class MultipleColumnLayoutAttributes: UICollectionViewLayoutAttributes {
 		guard let attributes = object as? MultipleColumnLayoutAttributes else {
 			return false
 		}
-		if attributes.photoHeight == photoHeight && attributes.annotationHeight == annotationHeight && attributes.cellWidth == cellWidth {
+		if attributes.photoHeight == photoHeight && attributes.annotationHeight == annotationHeight {
 			return super.isEqual(object)
 		}
 		return false
@@ -67,6 +65,12 @@ class MultipleColumnLayout: UICollectionViewLayout {
 		self.numberOfColumns = numberOfColumns
 		self.screenWidth = screenWidth
 	}
+	
+	// MARK: Public API
+	
+	func clearCache() {
+		cache.removeAll()
+	}
 
     override class func layoutAttributesClass() -> AnyClass {
         return MultipleColumnLayoutAttributes.self
@@ -89,9 +93,7 @@ class MultipleColumnLayout: UICollectionViewLayout {
 	override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
 		let attributes = MultipleColumnLayoutAttributes(forCellWithIndexPath: indexPath)
 		let frame = CGRectInset(CGRect(x: -231, y: -231, width: 1, height: 1), cellPadding, cellPadding)
-		
 		attributes.frame = frame
-		attributes.photoHeight = 1
 		return attributes
 	}
 	
@@ -126,7 +128,6 @@ class MultipleColumnLayout: UICollectionViewLayout {
                 attributes.frame = frame
                 attributes.photoHeight = photoHeight
 				attributes.annotationHeight = annotationHeight
-				attributes.cellWidth = width
 				
                 cache.append(attributes)
 				

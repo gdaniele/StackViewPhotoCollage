@@ -12,11 +12,6 @@ import UIKit
 class PhotoCaptionCell: UICollectionViewCell {
 	// MARK: Layout Concerns
 	private var didSetUpView: Bool = false
-	private var calculatedPhotoHeight: CGFloat? {
-		didSet {
-			photoHeightLayoutConstraint?.constant = calculatedPhotoHeight!
-		}
-	}
 	private var calculatedTextHeight: CGFloat? {
 		didSet {
 			textHeightLayoutConstraint?.constant = calculatedTextHeight!
@@ -24,8 +19,8 @@ class PhotoCaptionCell: UICollectionViewCell {
 	}
 	
 	// MARK: Constraints
-	private var photoHeightLayoutConstraint: NSLayoutConstraint?
 	private var textHeightLayoutConstraint: NSLayoutConstraint?
+	private var stackViewConstraints: [NSLayoutConstraint]! = nil
 	private var titleLabelToCaptionViewConstraints: [NSLayoutConstraint]! = nil
 
 	// MARK: Lazy UI
@@ -70,6 +65,13 @@ class PhotoCaptionCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: CGRectZero)
 		
+		self.stackViewConstraints = [
+			NSLayoutConstraint(item: mainView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: mainView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: mainView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: mainView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1, constant: 0)
+			]
+		
 		self.titleLabelToCaptionViewConstraints = [
 			NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: captionView, attribute: .Leading, multiplier: 1, constant: 0),
 			NSLayoutConstraint(item: titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: captionView, attribute: .Trailing, multiplier: 1, constant: 0),
@@ -77,7 +79,7 @@ class PhotoCaptionCell: UICollectionViewCell {
 			NSLayoutConstraint(item: titleLabel, attribute: .Bottom, relatedBy: .Equal, toItem: captionView, attribute: .Bottom, multiplier: 1, constant: 0)
 		]
 	}
-
+	
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
 	}
@@ -95,19 +97,24 @@ class PhotoCaptionCell: UICollectionViewCell {
 		applyStyle(style)
 	}
 	
+	override func updateConstraints() {
+		super.updateConstraints()
+	}
+	
 	override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
 		super.applyLayoutAttributes(layoutAttributes)
-		
 		guard let attributes = layoutAttributes as? MultipleColumnLayoutAttributes else {
 			fatalError("Unexpected attributes class")
 		}
-		
-		guard [attributes.photoHeight, attributes.annotationHeight, attributes.cellWidth].filter({ $0 != 0.0 }).isEmpty else {
-			return
-		}
-
-		calculatedPhotoHeight = attributes.photoHeight
 		calculatedTextHeight = attributes.annotationHeight
+		
+		print("\n\nME: \(self.hash)")
+		print("frame: \(self.frame)\n\n")
+		
+		if didSetUpView {
+			removeConstraints(stackViewConstraints)
+			addConstraints(stackViewConstraints)
+		}
 	}
 	
 	// MARK: Private view
@@ -129,16 +136,7 @@ class PhotoCaptionCell: UICollectionViewCell {
 		addSubview(mainView)
 		
 		// Constraint stackView to cell's edges
-		if let uSuperView = mainView.superview {
-			addConstraints(
-				[
-					NSLayoutConstraint(item: mainView, attribute: .Top, relatedBy: .Equal, toItem: uSuperView, attribute: .Top, multiplier: 1, constant: 0),
-					NSLayoutConstraint(item: mainView, attribute: .Bottom, relatedBy: .Equal, toItem: uSuperView, attribute: .Bottom, multiplier: 1, constant: 0),
-					NSLayoutConstraint(item: mainView, attribute: .Leading, relatedBy: .Equal, toItem: uSuperView, attribute: .Leading, multiplier: 1, constant: 0),
-					NSLayoutConstraint(item: mainView, attribute: .Trailing, relatedBy: .Equal, toItem: uSuperView, attribute: .Trailing, multiplier: 1, constant: 0)
-				]
-			)
-		}
+		addConstraints(stackViewConstraints)
 		
 		// Add default padding around title label
 		addConstraints(titleLabelToCaptionViewConstraints)

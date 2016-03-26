@@ -223,6 +223,6 @@ protocol PhotoCaptionCellStyle {
 struct BeigeRoundedPhotoCaptionCellStyle: PhotoCaptionCellStyle {
   let backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.2)
   let cornerRadius: CGFloat = 5
-  let titleFont = UIFont(name: "Avenir", size: 12)!
+  let titleFont = UIFont(name: "Avenir", size: 12) ?? UIFont.systemFontOfSize(12)
   let titleInsets = UIEdgeInsetsMake(5, 5, 5, 5)
 }

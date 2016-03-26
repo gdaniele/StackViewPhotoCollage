@@ -40,16 +40,13 @@ class ImageFeedViewController: UICollectionViewController {
 	
 	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-		guard let collectionView = collectionView else {
-			fatalError("No collection view")
-		}
 		
-		// Check to see if size changed
-		guard let layout = collectionView.collectionViewLayout as? MultipleColumnLayout where layout.screenWidth != size.width else {
+		guard let collectionView = collectionView, let layout = collectionView.collectionViewLayout as? MultipleColumnLayout else {
 			return
 		}
 		layout.clearCache()
 		layout.invalidateLayout()
+		print("are they equal? \(layout.collectionViewContentSize().height == collectionView.contentSize.height)")
 	}
 	
 	// MARK: Private
@@ -89,10 +86,13 @@ extension ImageFeedViewController {
     }
 	
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as? PhotoCaptionCell else {
+		guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.reuseIdentifier, forIndexPath: indexPath) as? PhotoCaptionCell
+			else {
 			fatalError("Could not dequeue cell")
 		}
-		cell.setUpWithImage(photos[indexPath.item].image, title: photos[indexPath.item].caption, style: BeigeRoundedPhotoCaptionCellStyle())
+		cell.setUpWithImage(photos[indexPath.item].image,
+		                    title: photos[indexPath.item].caption,
+		                    style: BeigeRoundedPhotoCaptionCellStyle())
 		
         return cell
     }
@@ -101,6 +101,7 @@ extension ImageFeedViewController {
 // MARK: MultipleColumnLayoutDelegate
 
 extension ImageFeedViewController: MultipleColumnLayoutDelegate {
+	
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
         let photo = photos[indexPath.item]
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))

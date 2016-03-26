@@ -47,23 +47,21 @@ class MultipleColumnLayout: UICollectionViewLayout {
 	// MARK: Layout Concerns
     private var cache = [MultipleColumnLayoutAttributes]()
     private var contentHeight: CGFloat = 0
-	var screenWidth: CGFloat?
     private var width: CGFloat {
         get {
 			guard let collectionView = collectionView else {
 				fatalError()
 			}
             let insets = collectionView.contentInset
-			let width = screenWidth ?? CGRectGetWidth(collectionView.bounds)
+			let width = CGRectGetWidth(collectionView.bounds)
             return width - (insets.left + insets.right)
         }
     }
 	
-	convenience init(cellPadding: CGFloat, numberOfColumns: Int, screenWidth: CGFloat) {
+	convenience init(cellPadding: CGFloat, numberOfColumns: Int) {
 		self.init()
 		self.cellPadding = cellPadding
 		self.numberOfColumns = numberOfColumns
-		self.screenWidth = screenWidth
 	}
 	
 	// MARK: Public API
